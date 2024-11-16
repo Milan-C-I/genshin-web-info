@@ -52,3 +52,15 @@ a {
   bottom:0;
   z-index:-4;
 }
+body::-webkit-scrollbar {
+  width:1px;
+}
+body::-webkit-scrollbar-track {
+  background: #000000; /* Track background */
+  border-radius: 20px; /* Rounded edges */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Thumb color */
+  border-radius: 10px; /* Rounded edges */
+} 

@@ -1,0 +1,85 @@
+.region {
+  margin: 5%;
+  padding:40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.region > hr{
+    width: 100%;
+    border:1px solid black;
+    margin-block:2px;
+}
+.region > h1{
+    font-size: 50px;
+    font-weight: bold;
+    padding: 40px;
+    padding-top:10px;
+}
+.regionContent{
+    background-image: url("/img/monstad.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    border-radius:20px;
+    padding: 20px;
+}
+.regionContent > p{
+    width: 50%;
+    line-height: 1.5;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 0.6),rgba(0, 0, 0, 0));
+}
+.regionCharSection{
+    border-radius: 20px;
+    display:grid;
+    max-height: 700px;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px;
+}
+.charCard{
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    overflow: hidden;
+    padding:20px;
+    display: grid;
+    grid-template-areas: 'img name' 'img desc' 'img desc';
+}
+.charImage{
+    border-radius: 20px;
+    grid-area: img;
+}
+.charName{
+    grid-area: name;
+    padding-left: 20px;
+    font-weight: bold;
+}
+.charDesc{
+    grid-area: desc;
+    padding-inline: 20px;
+    font-family: 'system-ui';
+}
+.regionCharSection::-webkit-scrollbar {
+  width: 6px;
+}
+
+.regionCharSection::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track background */
+  border-radius: 20px; /* Rounded edges */
+}
+
+.regionCharSection::-webkit-scrollbar-thumb {
+  background: #cdf76d; /* Thumb color */
+  border-radius: 10px; /* Rounded edges */
+}
+
+.regionCharSection::-webkit-scrollbar-thumb:hover {
+    background: #8afa22; /* Darker color on hover */
+}

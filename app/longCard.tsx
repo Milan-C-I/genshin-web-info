@@ -2,11 +2,11 @@
 import Image from "next/image";
 import "@/styles/card.css";
 import { useEffect, useRef, useState } from "react";
-import { Russo_One } from "next/font/google";
+import { Honk, Russo_One, Trade_Winds } from "next/font/google";
 
-const jersey = Russo_One({
+const honk = Trade_Winds({
     weight: "400",
-    subsets: ["latin"], 
+    subsets: ["latin"],
 });
 
 export default function LongCard({side}:{side?:string}){
@@ -48,11 +48,11 @@ export default function LongCard({side}:{side?:string}){
             }}
         >
             <Image className="limage" src="/img/arlechino.png" alt='img' width={0} height={0} layout="responsive"></Image>
-            <h1 className={`lname ${jersey.className}`} style={{
+            <h1 className={`lname ${honk.className}`} style={{
                 opacity: isVisible ? 1 : 0,
                 zIndex:-1,
                 transition: "opacity 2s ease, transform 1.5s ease",
-                transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",}} >Arlechino <hr></hr></h1>
+                transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",}} >Arlecchino <hr></hr></h1>
             <p className="ldesc"
             style={{
                 opacity: isVisible ? 1 : 0,
