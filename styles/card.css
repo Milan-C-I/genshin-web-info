@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Jersy';
+    src: url('https://fonts.google.com/fonts/jersey15.woff2') format('woff2')
+}
+hr{
+    width:90%;
+    border:1px solid black;
+    margin-block:2px;
+}
+.lcard {
+    margin-block:60px;
+    margin-left:10px;
+    margin-right:auto;
+    width: 60vw;
+    overflow: hidden;
+    border-radius: 40px;
+    background: rgba(255, 255, 255,0.75);
+    padding: 25px;
+    display: grid;
+    grid-template-areas:
+        "img name"
+        "img desc";
+        gap: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.75);
+}
+.rightcard{
+    margin-right:10px;
+    margin-left:auto;
+}
+.limage {
+    grid-area: img;
+    border-radius: 40px;
+}
+.lname {
+    font-size: 50px;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 2px rgba(193, 118, 255, 0.75);
+    grid-area: name;
+    padding-left:30px;
+}
+.ldesc {
+    font-family: 'system-ui';
+    grid-area: desc;
+    padding-inline:30px;
+}

@@ -1,0 +1,66 @@
+'use client';   
+import Image from "next/image";
+import "@/styles/card.css";
+import { useEffect, useRef, useState } from "react";
+import { Russo_One } from "next/font/google";
+
+const jersey = Russo_One({
+    weight: "400",
+    subsets: ["latin"], 
+});
+
+export default function LongCard({side}:{side?:string}){
+
+    const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.75 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+    return(
+        <div className={side === "right" ? "rightcard lcard" : "lcard"}
+            ref={cardRef}
+            style={{
+                opacity: isVisible ? 1 : 0,
+                transition: "opacity 1s ease, transform 1s ease",
+                transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
+            }}
+        >
+            <Image className="limage" src="/img/arlechino.png" alt='img' width={0} height={0} layout="responsive"></Image>
+            <h1 className={`lname ${jersey.className}`} style={{
+                opacity: isVisible ? 1 : 0,
+                zIndex:-1,
+                transition: "opacity 2s ease, transform 1.5s ease",
+                transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",}} >Arlechino <hr></hr></h1>
+            <p className="ldesc"
+            style={{
+                opacity: isVisible ? 1 : 0,
+                transition: "opacity 2s ease, transform 2s ease",
+                transform: isVisible ? "translateY(0)" : "translateY(25%)",
+            }}
+            >Arlecchino, also known by her codename "The Knave," is a playable Pyro character in Genshin Impact.
+She is the Fourth of the Eleven Fatui Harbingers and the current head of the House of the Hearth. She is addressed as "Father" by members of the House, who she calls her "children."</p>
+        </div>
+    )
+}
