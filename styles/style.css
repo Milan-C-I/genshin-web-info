@@ -1,0 +1,66 @@
+.header{
+    padding:10px 40px;
+    margin-inline:60px;
+    background: linear-gradient(90deg,rgba(217, 161, 255, 0.95),rgba(255, 255, 255, 0.75),rgba(217, 161, 255,0.95));
+    border-radius: 0px 0px 60px 60px;
+    border-bottom:2px solid white;
+    display: flex;
+    align-items: center;
+    gap:10rem;
+}
+.header > h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+}
+.nav > button{
+    color:black;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background: none;
+    border:0px solid white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+.nav > button:hover{
+    background: rgba(178, 157, 255, 0.75);
+}
+.hero{
+    height:40rem;
+    border-radius: 0px 0px 80px 80px;
+    /* background: linear-gradient(90deg,rgba(55, 108, 255, 0.9),rgba(255, 255, 255, 0.5),rgba(55, 108, 255, 0.9)); */
+    background-image: url("/img/genshin_hero.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom:2px solid white;
+}
+.hero > h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top:12rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding:10px 0px;
+}
+.hero > h1 > span{
+    background: linear-gradient(90deg,rgba(55, 108, 255, 1),rgba(250, 6, 197, 1),rgba(55, 108, 255, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left:30px;
+}
+.hero > h2{
+    width: fit-content;
+    font-size: 40px;
+    font-weight:lighter;
+    margin: 0rem 0rem 0rem auto; 
+    background: rgba(255, 255, 255, 0.6);
+    padding:0px 20rem 0px 30px; 
+    border-radius: 0 0 0 30px;
+}
