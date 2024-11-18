@@ -4,8 +4,8 @@ import { MongoClient } from "mongodb";
 let client: MongoClient;
 
 async function connect() {
-    if (!client) {
-        client = new MongoClient("mongodb://localhost:27017");
+    if (!client) {  
+        client = new MongoClient(process.env.MONGO_URI as string);
         await client.connect();
     }
     return client;
@@ -29,6 +29,7 @@ export async function getCharacters(){
         const db = client.db("genshin-web-info");
         const collection = db.collection("characters");
         const characters = await collection.find({}).toArray();
+        console.log(characters);
         return characters;
     }catch(error){
         console.error("Error fetching characters:", error);

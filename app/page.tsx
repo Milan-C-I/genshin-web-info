@@ -20,7 +20,7 @@ export default async function Home() {
       <Region/>
       <Region/>
       <Region/>
-        {char?.map((c) => <h1>{`${c.name}, ${c.description}`}</h1>)}
+      {char?.map((c) => <h1>{`${c?.name}, ${c?.description}`}</h1>)}
     </div>
   );
 }
