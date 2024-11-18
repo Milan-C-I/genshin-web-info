@@ -1,10 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import LongCard from "./longCard";
 import Region from "./region";
 import Header from "./Header";
+import  {getCharacters} from "@/backend/mongodb";
 
-export default function Home() {
+export default async function Home() {
+  const char = await getCharacters();
   return (
     <div>
       <Header></Header>
@@ -20,6 +20,7 @@ export default function Home() {
       <Region/>
       <Region/>
       <Region/>
+        {char?.map((c) => <h1>{`${c.name}, ${c.description}`}</h1>)}
     </div>
   );
 }
