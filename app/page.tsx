@@ -1,10 +1,10 @@
 import LongCard from "./longCard";
 import Region from "./region";
 import Header from "./Header";
-import  {getCharacters} from "@/backend/mongodb";
+// import  {getCharacters} from "@/backend/mongodb";
 
 export default async function Home() {
-  const char = await getCharacters();
+  // const char = await getCharacters();
   return (
     <div>
       <Header></Header>
@@ -20,7 +20,7 @@ export default async function Home() {
       <Region/>
       <Region/>
       <Region/>
-      {char?.map((c) => <h1>{`${c?.name}, ${c?.description}`}</h1>)}
+      {/* {char?.map((c) => <h1>{`${c?.name}, ${c?.description}`}</h1>)} */}
     </div>
   );
 }

@@ -10,6 +10,20 @@ async function connect() {
     }
     return client;
 }
+export async function getCharacters(){
+    try{
+        const client = await connect();
+        const db = client.db("genshin-web-info");
+        const collection = db.collection("characters");
+        const characters = await collection.find({region: "Liyue"}).toArray();
+        return characters.map((char) => ({
+            ...char,
+            _id: char._id.toString(), // Convert ObjectId to string
+        }));
+    }catch(error){
+        console.error("Error fetching characters:", error);
+    }
+}
 
 // export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 //     try {
@@ -23,15 +37,3 @@ async function connect() {
 //         res.status(500).json({ message: "Internal Server Error" });
 //     }
 // }
-export async function getCharacters(){
-    try{
-        const client = await connect();
-        const db = client.db("genshin-web-info");
-        const collection = db.collection("characters");
-        const characters = await collection.find({}).toArray();
-        console.log(characters);
-        return characters;
-    }catch(error){
-        console.error("Error fetching characters:", error);
-    }
-}
