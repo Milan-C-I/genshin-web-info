@@ -1,13 +1,15 @@
 import LongCard from "./longCard";
 import Region from "./region";
 import Header from "./Header";
+import Carousel from "./Carousel";
 // import  {getCharacters} from "@/backend/mongodb";
 
 export default async function Home() {
   // const char = await getCharacters();
   return (
     <div>
-      <Header></Header>
+      <Header/>
+      <Carousel/>
       <LongCard/>
       <LongCard side="right"/>
       <LongCard/>

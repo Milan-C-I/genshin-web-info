@@ -63,11 +63,16 @@
   place-content: center;
   /* place-items: center; */
 }
+.charCard:hover{
+  cursor: pointer;
+}
 .charDetails{
   grid-area: charText;
   display: flex;
   flex-direction: column;
-  padding-left:20px;
+  padding-inline:20px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .charImage {
   width: 200px;
@@ -102,7 +107,19 @@
 .regionCharSection::-webkit-scrollbar-thumb:hover {
   background: #8afa22; /* Darker color on hover */
 }
+.charDetails::-webkit-scrollbar {
+  width:1px;
+  
+}
+.charDetails::-webkit-scrollbar-track {
+  background: none; /* Track background */
+  border-radius: 20px; /* Rounded edges */
+}
 
+.charDetails::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Thumb color */
+  border-radius: 10px; /* Rounded edges */
+} 
 @media (max-width: 1350px) {
 .regionContent > p {
     width: 70%;
