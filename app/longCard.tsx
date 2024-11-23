@@ -47,7 +47,15 @@ export default function LongCard({side}:{side?:string}){
                 transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
             }}
         >
-            <Image className="limage" src="/img/arlechino.png" alt='img' width={0} height={0} layout="responsive"></Image>
+            <div className="limage"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transition: "opacity 1s ease, transform 2s ease",
+              transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
+          }}>
+            <Image  src="/img/arlechino.png" alt='img' fill  objectPosition="center" objectFit="cover"></Image>
+            </div>
+            <div className="ltext">
             <h1 className={`lname ${honk.className}`} style={{
                 opacity: isVisible ? 1 : 0,
                 zIndex:-1,
@@ -61,6 +69,7 @@ export default function LongCard({side}:{side?:string}){
             }}
             >Arlecchino, also known by her codename "The Knave," is a playable Pyro character in Genshin Impact.
 She is the Fourth of the Eleven Fatui Harbingers and the current head of the House of the Hearth. She is addressed as "Father" by members of the House, who she calls her "children."</p>
+            </div>
         </div>
     )
 }

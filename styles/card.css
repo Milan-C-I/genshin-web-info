@@ -12,24 +12,30 @@ hr{
     margin-left:10px;
     margin-right:auto;
     width: 60vw;
+    max-height: 15rem;
     overflow: hidden;
     border-radius: 40px;
     background: rgba(255, 255, 255,0.6);
     padding: 20px;
-    display: grid;
-    grid-template-areas:
-        "img name"
-        "img desc";
-        gap: 10px;
-        /* box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.5); */
+    display: flex;
 }
 .rightcard{
     margin-right:10px;
     margin-left:auto;
 }
+.ltext{
+    display: flex;
+    flex-direction: column;
+    padding-inline:20px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
 .limage {
     grid-area: img;
+    width: 100rem;
+    height: 12rem;
     border-radius: 40px;
+    overflow: hidden;
 }
 .lname {
     font-size: 35px;
@@ -41,5 +47,18 @@ hr{
 .ldesc {
     font-family: 'system-ui';
     grid-area: desc;
-    padding-inline:30px;
+    padding:10px 30px 0 30px;
+}
+.ltext::-webkit-scrollbar {
+    width: 1px;
+}
+
+.ltext::-webkit-scrollbar-track {
+    background: none; /* Track background */
+    border-radius: 20px; /* Rounded edges */
+}
+
+.ltext::-webkit-scrollbar-thumb {
+    background: #fff; /* Scrollbar color */ 
+    border-radius: 10px; /* Rounded edges */
 }

@@ -1,129 +1,259 @@
-.header{
-    padding:10px 40px;
-    margin-inline:60px;
-    background: linear-gradient(90deg,rgba(217, 161, 255, 0.95),rgba(255, 255, 255, 0.75),rgba(217, 161, 255,0.95));
-    border-radius: 0px 0px 60px 60px;
-    border-bottom:2px solid white;
-    display: flex;
-    align-items: center;
-    gap:10rem;
+.header {
+  padding: 10px 40px;
+  margin-inline: 60px;
+  background: linear-gradient(
+    90deg,
+    rgba(217, 161, 255, 0.95),
+    rgba(255, 255, 255, 0.75),
+    rgba(217, 161, 255, 0.95)
+  );
+  border-radius: 0px 0px 60px 60px;
+  border-bottom: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap:10rem; */
 }
-.header > h1{
-    font-size: 50px;
-    font-weight: bold;
+.header > h1 {
+  font-size: 50px;
+  font-weight: bold;
 }
-.nav{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 25px;
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
 }
-.nav > button{
-    color:black;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    background: none;
-    border:0px solid white;
-    border-radius: 10px;
-    transition: background 0.3s ease;
+.nav > button {
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background: none;
+  border: 0px solid white;
+  border-radius: 10px;
+  transition: background 0.3s ease;
 }
-.nav > button:hover{
-    background: rgba(178, 157, 255, 0.75);
+.nav > button:hover {
+  background: rgba(178, 157, 255, 0.75);
 }
-.hero{
-    height:40rem;
-    border-radius: 0px 0px 80px 80px;
-    /* background: linear-gradient(90deg,rgba(55, 108, 255, 0.9),rgba(255, 255, 255, 0.5),rgba(55, 108, 255, 0.9)); */
-    background-image: url("/img/genshin_hero.jpg");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom:2px solid white;
+.hero {
+  position: relative;
+  width: 95vw;
+  margin: 0px auto;
+  height: 70vh;
+  border-radius: 0px 0px 80px 80px;
+  /* background: linear-gradient(90deg,rgba(55, 108, 255, 0.9),rgba(255, 255, 255, 0.5),rgba(55, 108, 255, 0.9)); */
+  background-image: url("/img/genshin_hero.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 2px solid white;
+  overflow: hidden;
 }
-.hero > h1{
+.heroText {
+  width: 100%;
+  position: absolute;
+  bottom: 2rem;
+}
+.heroText > h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 12px 5px 0px 5px;
+  backdrop-filter: blur(1px);
+}
+.heroText > h1 > span {
+  background: linear-gradient(
+    90deg,
+    rgb(0, 68, 255),
+    rgb(0, 0, 0),
+    rgb(0, 68, 255)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 2%;
+  font-weight: 500;
+}
+.heroText > h2 {
     text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    margin-top:12rem;
-    background: rgba(255, 255, 255, 0.6);
-    padding:10px 0px;
+  font-size: 35px;
+  font-weight: lighter;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0 5px 12px 5px;
+  border-radius: 0 0 0 30px;
+  backdrop-filter: blur(1px);
 }
-.hero > h1 > span{
-    background: linear-gradient(90deg,rgba(55, 108, 255, 1),rgba(250, 6, 197, 1),rgba(55, 108, 255, 1));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-left:30px;
+.swipper-container {
+  width: 100%;
+  margin: auto;
+  margin-block: 50px;
+  padding: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(55, 108, 255, 0.9),
+    rgba(255, 255, 255, 0.5),
+    rgba(55, 108, 255, 0.9)
+  );
+  /* border-radius: 20px; */
 }
-.hero > h2{
-    width: fit-content;
-    font-size: 40px;
-    font-weight:lighter;
-    margin: 0rem 0rem 0rem auto; 
-    background: rgba(255, 255, 255, 0.6);
-    padding:0px 20rem 0px 30px; 
-    border-radius: 0 0 0 30px;
-}
-.swipper-container{
-    width: 100%;
-    margin: auto;
-    margin-block:50px;
-    padding: 30px;
-    background:linear-gradient(90deg,rgba(55, 108, 255, 0.9),rgba(255, 255, 255, 0.5),rgba(55, 108, 255, 0.9));
-    /* border-radius: 20px; */
-}
-.swiper-image{
-    width: 100%;
-    height: 300px;
+.swiper-image {
+  width: 100%;
+  height: 300px;
 }
 @media (max-width: 1800px) {
-    .swiper-image{
-        height: 250px;
-    }
+  .swiper-image {
+    height: 250px;
+  }
 }
 @media (max-width: 1450px) {
-    .swiper-image{
-        height: 200px;
-    }
+  .swiper-image {
+    height: 200px;
+  }
 }
 @media (max-width: 1250px) {
-    .swiper-image{
-        height: 150px;
-    }
+  .swiper-image {
+    height: 150px;
+  }
 }
 @media (max-width: 1050px) {
-    .swiper-image{
-        height: 200px;
-    }
+  .swiper-image {
+    height: 200px;
+  }
 }
 @media (max-width: 890px) {
-    .swiper-image{
-        height: 150px;
-    }
+  .swiper-image {
+    height: 150px;
+  }
 }
 @media (max-width: 800px) {
-    .swiper-image{
-        height: 100px;
-    }
+  .swiper-image {
+    height: 100px;
+  }
 }
 @media (max-width: 600px) {
-    .swiper-image{
-        height: 200px;
-    }
+  .swiper-image {
+    height: 200px;
+  }
 }
 @media (max-width: 575px) {
-    .swiper-image{
-        height: 150px;
-    }
+  .swiper-image {
+    height: 150px;
+  }
 }
 @media (max-width: 515px) {
-    .swiper-image{
-        height: 150px;
-    }
+  .swiper-image {
+    height: 150px;
+  }
 }
 @media (max-width: 420px) {
-    .swiper-image{
-        width: 100%;
-        height: 100px;
+  .swiper-image {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+/* header */
+@media (max-width: 1650px) {
+  .header > h1 {
+    font-size: 40px;
+  }
+  .nav > button {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  .heroText > h1 {
+    font-size: 30px;
+    padding: 10px 5px 0 5px;
+  }
+  .heroText > h2 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 1285px) {
+    .hero{
+        height: 50vh;
+    }
+  .header > h1 {
+    font-size: 1.5rem;
+  }
+  .nav {
+    gap: 10px;
+  }
+  .nav > button {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .heroText > h1 {
+    font-size: 25px;
+    padding: 5px 5px 0 5px;
+  }
+  .heroText > h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 1000px) {
+  .header > h1 {
+    font-size: 1.5rem;
+  }
+  .header {
+    margin-inline: 0;
+  }
+  .nav {
+    gap: 5px;
+  }
+  .nav > button {
+    padding: 0.3rem 0.3rem;
+    font-size: 0.7rem;
+  }
+  .heroText > h1 {
+    font-size: 20px;
+  }
+  .heroText > h2 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 720px) {
+    .hero{
+        height: 40vh;
+    }
+    .header{
+        gap:30px;
+    }
+  .header > h1 {
+    font-size: 1.2rem;
+  }
+  .nav {
+    gap: 5px;
+  }
+  .nav > button {
+    padding: 0.3rem 0.3rem;
+    font-size: 0.6rem;
+  }
+  .heroText{
+    bottom:2rem;
+  }
+  .heroText > h1 {
+    font-size: 15px;
+  }
+  .heroText > h2 {
+    font-size: 15px;
+    width: 100%;
+    padding: 5px 5px;
+    text-align: center;
+  }
+}
+@media (max-width: 630px) {
+    .hero{
+        height: 35vh;
+    }
+    .nav{
+        display:none;
+    }
+    .navOption{
+        display:block;
     }
 }
