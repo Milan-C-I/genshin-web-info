@@ -1,5 +1,6 @@
 import '@/styles/style.css';
 import { Arizonia, Bangers, Pacifico, Poiret_One, Red_Rose, Rubik_Moonrocks,  } from 'next/font/google';
+import DropdownNav from './dropDownNav';
 const headerFont = Arizonia({
     weight:'400',
     subsets:['latin'],
@@ -24,7 +25,9 @@ export default function Header() {
                 <button className={buttonFont.className}>Sumeru→</button>
                 <button className={buttonFont.className}>Fontaine→</button>
                 <button className={buttonFont.className}>Natlan→</button></div>
+                <DropdownNav/>
             </div>
+            
             <div className='heroText'>
                 <h1 className={heroFont.className}>
                     Embark on an epic journey through the breathtaking world of 

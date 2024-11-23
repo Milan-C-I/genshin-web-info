@@ -104,6 +104,64 @@
   width: 100%;
   height: 300px;
 }
+
+.dropDownNav{
+    display:none;
+}
+.dropDownNav > button{
+    width:30px;
+    height:30px;
+    background: none;
+    /* padding: 5px 5px; */
+    color: #fff;
+    border: 5px outset rgba(255, 0, 242,0.5);
+    border-radius: 100%;
+    cursor: pointer;
+}
+.dropDownNav > button  > div > hr{
+    width: 8px; 
+    margin-inline: auto;
+}
+.dropDownNav > ul{
+    position: absolute;
+    top: 150%;
+    right: 0;
+    margin: 0;
+    padding : 10px;
+    /* background: rgba(217, 161, 255, 0.8); */
+    background: linear-gradient(45deg,rgba(245, 171, 255, 0.75),rgba(255, 255, 255, 0.75));
+    backdrop-filter: blur(1px);
+    border : 1px solid #fff;
+    border-radius: 4px;
+    box-Shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    animation: popIn 0.75s ease;
+}
+.dropDownNav > ul > li{
+    font-size: 10px;
+    padding: 8px; 
+    cursor: pointer; 
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease;
+}
+.dropDownNav > ul > li:hover{
+    background: rgba(255, 255, 255, 0.4);
+}
+@keyframes popIn{
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }50%{
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 @media (max-width: 1800px) {
   .swiper-image {
     height: 250px;
@@ -196,11 +254,15 @@
   }
 }
 @media (max-width: 1000px) {
+    .hero{
+        width: 100vw;
+    }
   .header > h1 {
     font-size: 1.5rem;
   }
   .header {
-    margin-inline: 0;
+    margin-inline: 20px;
+    padding: 5px 20px;
   }
   .nav {
     gap: 5px;
@@ -247,6 +309,10 @@
   }
 }
 @media (max-width: 630px) {
+    .header > h1 {
+        margin: auto;
+        padding-left:10%;
+      }
     .hero{
         height: 35vh;
     }
@@ -255,5 +321,13 @@
     }
     .navOption{
         display:block;
+    }
+    .dropDownNav{
+        display:inline-block;
+    }
+}
+@media (max-width: 500px) {
+    .hero{
+        height: 30vh;
     }
 }
