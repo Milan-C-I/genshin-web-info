@@ -2,10 +2,8 @@ import LongCard from "./longCard";
 import Region from "./region";
 import Header from "./Header";
 import Carousel from "./Carousel";
-// import  {getCharacters} from "@/backend/mongodb";
-
+import regionData from "@/data/regionData.json";
 export default async function Home() {
-  // const char = await getCharacters();
   return (
     <div>
       <Header/>
@@ -18,11 +16,7 @@ export default async function Home() {
       <LongCard side="right"/>
       <LongCard/>
       <LongCard side="right"/>
-      <Region/>
-      <Region/>
-      <Region/>
-      <Region/>
-      {/* {char?.map((c) => <h1>{`${c?.name}, ${c?.description}`}</h1>)} */}
+      {regionData.map((r) => <Region key={r.id} region={r}/>)}
     </div>
   );
 }

@@ -12,29 +12,18 @@ const headerFont = Sour_Gummy({
     subsets: ['latin'],
 })
 
-export default  async function Region() {
-    const characters = await getCharacters();
+export default  async function Region({region}:{region?:any}) {
+    const characters = await getCharacters(region?.name.toString());
     return (
         <div className="region">
-            <h1 className={headerFont.className}>Monstad →<hr></hr></h1>
+            <h1 className={headerFont.className}>{region?.name}→<hr></hr></h1>
             <div className="regionContent">
-                <p className={fontName.className}>A city of freedom that lies in the northeast of Teyvat.
-                From amongst mountains and wide-open plains, carefree breezes carry the scent of dandelions — a gift from the Anemo God, Barbatos — across Cider Lake to Mondstadt, which sits on an island in the middle of the lake.
-                Mondstadt is one of the seven regions of Teyvat, and the first in which the Traveler starts to look for their lost sibling. It is the nation that worships Lord Barbatos, the Anemo Archon and God of Freedom.</p>
+                <p className={fontName.className}>
+                    {region?.heading}<br/>
+                    {region?.description}
+                </p>
                 <div className='regionCharSection'>
-                   {/* <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/>
-                   <CharCard/> */}
-                   {characters?.map((c) => <CharCard key={c._id} char={c}></CharCard>)}
+                   {characters.length > 0 ? characters?.map((c:any) => <CharCard key={c._id} char={c}/>) : <h1 className={headerFont.className}>Coming Soon ...</h1> }
                 </div>
             </div>
         </div>
