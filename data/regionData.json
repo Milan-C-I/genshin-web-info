@@ -1,0 +1,44 @@
+[   
+    {
+        "id":"1",
+        "name":"Mondstadt",
+        "heading":"A city of freedom that lies in the northeast of Teyvat.",
+        "description":"From amongst mountains and wide-open plains, carefree breezes carry the scent of dandelions — a gift from the Anemo God, Barbatos — across Cider Lake to Mondstadt, which sits on an island in the middle of the lake.Mondstadt is one of the seven regions of Teyvat, and the first in which the Traveler starts to look for their lost sibling.It is the nation that worships Lord Barbatos, the Anemo Archon and God of Freedom."
+    },
+    {
+        "id":"2",
+        "name":"Liyue",
+        "heading":"A bountiful harbor that lies in the east of Teyvat.",
+        "description":"Mountains stand tall and proud alongside the stone forest, that, together with the open plains and lively rivers, make up Liyue's bountiful landscape, which shows its unique beauty through each of the four seasons. Just how many gifts from the Geo God lie in wait amongst the rocks of Liyue's mountains?"
+    },
+    {
+        "id":"3",
+        "name":"Inazuma",
+        "heading":"An Isolated Archipelago Far East of Teyvat.",
+        "description":"Overcome endless thunderstorms and set foot on the islands of red maple and cherry blossoms. On winding shores and towering cliffs, and in forests and mountains full of secrets, witness the Eternity pursued by Her Excellency, the Almighty Narukami Ogosho."
+    },
+    {
+        "id":"4",
+        "name":"Sumeru",
+        "heading":"The city of scholars located in the west-central part of Teyvat.",
+        "description":"A fantastical nation of both lush rainforest and barren desert, where countless fruits of wisdom grow and are buried. Whether Travelers travel from afar through the forest to reach the academy city or delve deep into the desert to discover the historical ruins of the red desert, a wealth of valuable knowledge awaits them here."
+    },
+    {
+        "id":"5",
+        "name":"Fontaine",
+        "heading":"A terrestrial sea in the center of Teyvat.",
+        "description":"Following the direction of pure currents, crossing wilderness, the depths of the forests and vastness of the sea of sand, arriving at the origin of all the waters of the continent. At the top of the waterfall, in the depths of the capital atop the terrestrial sea... a story that has never been heard, a legend that has been forgotten, like a lost kingdom sunken beneath the waves, yearning for a bard to sing its drowned songs."
+    },
+    {
+        "id":"6",
+        "name":"Natlan",
+        "heading":"The nation of oaths situated in the western regions of Teyvat.",
+        "description":"Guided by the flame, you pass through lengthy gorges and valleys to reach the land where the torches blaze, where all fires converge. Upon the blazing fields where Saurians roam, witness the end of the ancient war alongside the valiant warriors who resist the darkness."
+    },
+    {
+        "id":"7",
+        "name":"Snezhnaya",
+        "heading":"She is a god with no love left for her people, nor do they have any left for her.",
+        "description":"Her followers only hope to be on her side when the day of her rebellion against the divine comes at last."
+    }
+]
