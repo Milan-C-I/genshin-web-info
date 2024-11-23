@@ -25,7 +25,7 @@ const Carousel = () => {
             clickable: true,
             dynamicBullets: true,
           }}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 1000, disableOnInteraction: false }}
         loop={true}
         speed={2000}
         grabCursor={true}

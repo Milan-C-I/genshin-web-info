@@ -15,9 +15,9 @@ const headerFont = Sour_Gummy({
 export default  async function Region({region}:{region?:any}) {
     const characters = await getCharacters(region?.name.toString());
     return (
-        <div className="region">
+        <div className="region" id={`region-${region?.id}`}>
             <h1 className={headerFont.className}>{region?.name}→<hr></hr></h1>
-            <div className="regionContent">
+            <div className="regionContent" style={{backgroundImage: `url(${region?.bgImage})`}}>
                 <p className={fontName.className}>
                     {region?.heading}<br/>
                     {region?.description}
