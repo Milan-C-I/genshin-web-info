@@ -9,8 +9,9 @@ const fontName = Trade_Winds({
     subsets: ['latin'],
 })
 
-export default function CharCard({char}:{char?:any}) {
+export default function CharCard({char,btncolor}:{char?:any,btncolor?:string}) {
     const [isVisible,setIsVisible] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const cardRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(()=>{
@@ -71,6 +72,13 @@ export default function CharCard({char}:{char?:any}) {
                 {char?.description}
             </p>
             </div>
+            <button style={{float:'right',
+                backgroundColor: isHovered ? btncolor : 'black',
+                transition: 'background-color 0.5s ease',
+            }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            ><i className="uil uil-arrow-right"></i></button>
         </div>
     )
 }

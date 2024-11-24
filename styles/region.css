@@ -4,6 +4,20 @@
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
 }
+.emblem {
+  position: absolute;
+  top:20px;
+  right:20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background: black;
+  background-blend-mode: multiply;
+  transition: all 0.5s ease !important;
+}
+.emblem:hover {
+  scale:1.25;
+}
 .region > hr {
   width: 100%;
   border: 1px solid black;
@@ -16,6 +30,7 @@
   padding-top: 10px;
 }
 .regionContent {
+  position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,7 +39,6 @@
 }
 .regionContent > p {
   width: 50%;
-  /* transition: width 0.3s ease; */
   line-height: 1.5;
   padding: 20px;
   border-radius: 20px;
@@ -60,11 +74,14 @@
   display: grid;
   grid-template-areas: "img charText";
   place-content: center;
-  /* place-items: center; */
+  transition: all 0.5s ease !important;
 }
 .charCard:hover{
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.75);
+  scale : 1.05;
 }
+
 .charDetails{
   grid-area: charText;
   display: flex;
@@ -81,11 +98,31 @@
   overflow: hidden;
 }
 .charName {
-  /* padding-left: 20px; */
   font-weight: bold;
 }
+.charCard > button{
+  position: absolute;
+  top:7px;
+  right:7px;
+  border: 2px solid black;
+  border-radius: 100%;
+}
+.charCard > button:hover{
+  border: 2px solid white;
+  scale: 1.2;
+}
+.uil-arrow-right::before{ 
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  transition: all 0.5s ease !important;
+}
+.uil-arrow-right:hover::before{
+  color:black;
+}
 .charDesc {
-  /* padding-inline: 20px; */
   font-family: "system-ui";
   padding-top:5px;
 }
@@ -134,9 +171,21 @@
 @media (max-width: 1400px) {
     .region{
         padding: 10px;
+        position: relative;
     }
     .regionContent{
         padding:10px;
+        position:static;
+    }
+    .emblem{
+      width: 60px;
+      height: 60px;
+      top:5px;
+      right: 5px;
+      border-radius: 15px;
+    }
+    .emblem:hover{
+      scale:1.1;
     }
     .regionCharSection{
         max-height: 300px;
@@ -170,6 +219,16 @@
 @media (max-width: 770px) {
     .regionContent > p {
         font-size: 10px;
+    }
+    .emblem{
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        top:10px;
+        right:10px;
+    }
+    .emblem:hover{
+      scale:1.2;
     }
 }
 @media (max-width: 400px) {
