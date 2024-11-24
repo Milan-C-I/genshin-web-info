@@ -18,13 +18,15 @@ export default function Header() {
         <div className='hero'>
             <div className="header">
                 <h1 className={headerFont.className}>GenshinImpact</h1>
-                <div className='nav'><button className={buttonFont.className}>Home→</button>
-                <button className={buttonFont.className}>Monstad→</button>
-                <button className={buttonFont.className}>Liyue→</button>
-                <button className={buttonFont.className}>Inazuma→</button>
-                <button className={buttonFont.className}>Sumeru→</button>
-                <button className={buttonFont.className}>Fontaine→</button>
-                <button className={buttonFont.className}>Natlan→</button></div>
+                <div className='nav'>
+                    <button className={buttonFont.className}><a href="#region-1">Mondstadt→</a></button>
+                    <button className={buttonFont.className}><a href="#region-2">Liyue→</a></button>
+                    <button className={buttonFont.className}><a href="#region-3">Inazuma→</a></button>
+                    <button className={buttonFont.className}><a href="#region-4">Sumeru→</a></button>
+                    <button className={buttonFont.className}><a href="#region-5">Fontaine→</a></button>
+                    <button className={buttonFont.className}><a href="#region-6">Natlan→</a></button>
+                    <button className={buttonFont.className}><a href="#region-7">Snezhnaya→</a></button>
+                </div>
                 <DropdownNav/>
             </div>
             

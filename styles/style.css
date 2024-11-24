@@ -106,6 +106,7 @@
 }
 
 .dropDownNav{
+    position: relative;
     display:none;
 }
 .dropDownNav > button{
@@ -124,11 +125,11 @@
 }
 .dropDownNav > ul{
     position: absolute;
+    width: fit-content;
     top: 150%;
     right: 0;
     margin: 0;
     padding : 10px;
-    /* background: rgba(217, 161, 255, 0.8); */
     background: linear-gradient(45deg,rgba(245, 171, 255, 0.75),rgba(255, 255, 255, 0.75));
     backdrop-filter: blur(1px);
     border : 1px solid #fff;
@@ -136,19 +137,17 @@
     box-Shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     list-style: none;
     z-index: 1000;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     animation: popIn 0.75s ease;
 }
-.dropDownNav > ul > li{
+.dropDownNav > ul > a > li{
     font-size: 10px;
     padding: 8px; 
     cursor: pointer; 
     border-bottom: 1px solid #ddd;
-    transition: background 0.3s ease;
+    transition: background 0.5s ease;
 }
-.dropDownNav > ul > li:hover{
-    background: rgba(255, 255, 255, 0.4);
+.dropDownNav > ul > a > li:hover{
+    background: rgba(255, 255, 255, 0.75);
 }
 @keyframes popIn{
     0%{
@@ -322,12 +321,25 @@
     .navOption{
         display:block;
     }
-    .dropDownNav{
-        display:inline-block;
+    .dropDownNav > ul{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 }
 @media (max-width: 500px) {
     .hero{
         height: 30vh;
+    }
+    .heroText{
+      bottom: 0;
+    }
+    .heroText > h1 {
+      font-size: 12px;
+    }
+    .heroText > h2 {
+      font-size: 12px;
+      width: 100%;
+      padding: 0 5px 5px 5px;
+      text-align: center;
     }
 }
