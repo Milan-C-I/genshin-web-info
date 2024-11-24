@@ -15,12 +15,19 @@ hr{
     background: rgba(255, 255, 255,0.6);
     padding: 20px;
     display: flex;
+    transition: all 0.5s ease !important;
 }
+.lcard:hover{
+    background: rgba(255, 255, 255,0.8);
+    scale: 1.02;
+}
+
 .rightcard{
     margin-right:10px;
     margin-left:auto;
 }
 .ltext{
+    width: 130%;
     display: flex;
     flex-direction: column;
     padding-inline:20px;
@@ -44,7 +51,7 @@ hr{
 .ldesc {
     font-family: 'system-ui';
     grid-area: desc;
-    padding:10px 30px 0 30px;
+    padding:10px 0 0 30px;
 }
 .ltext::-webkit-scrollbar {
     width: 1px;
@@ -58,4 +65,137 @@ hr{
 .ltext::-webkit-scrollbar-thumb {
     background: #fff; /* Scrollbar color */ 
     border-radius: 10px; /* Rounded edges */
+}
+@media (max-width: 1500px) {
+    .lcard {
+        width: 70vw;
+    }
+    .ltext{
+        width: 150%;
+    }
+    .lname{
+        font-size: 30px;
+    }
+    .ldesc{
+        font-size: 15px;
+    }
+}
+@media (max-width: 1200px) {
+    .ltext{
+        width: 200%;
+    }
+    .lname{
+        font-size: 25px;
+    }
+    .ldesc{
+        font-size: 12px;
+    }
+    .limage{
+        height: 8rem;
+    }
+    .lcard{
+        max-height: 10rem;
+        padding: 15px;
+        margin-block: 40px;
+    }
+}
+@media (max-width: 1000px) {
+    .ltext{
+        width: 250%;
+        padding-left: 0;
+    }
+    .lname{
+        font-size: 20px;
+    }
+    .ldesc{
+        font-size: 10px;
+    }
+}
+@media (max-width: 800px) {
+    .ltext{
+        width: 300%;
+    }
+    .limage{
+        height: 6rem;
+        border-radius: 30px;
+    }
+    .lname{
+        font-size: 15px;
+    }
+    .ldesc{
+        font-size: 8px;
+        padding-top: 5px;
+    }
+    .lcard{
+        max-height: 8rem;
+        padding: 10px;
+        margin-block: 30px;
+        border-radius: 30px;
+    }
+    
+}
+@media (max-width: 650px) {
+    .ltext{
+        width: 400%;
+        overflow-y: scroll;
+    }
+    .limage{
+        height: 5rem;
+        border-radius: 20px;
+    }
+    .lname{
+        font-size: 10px;
+        padding-left: 15px;
+    }
+    .ldesc{
+        font-size: 7px;
+        padding-left: 15px;
+        padding-top: 1px;
+    }
+    .lcard{
+        max-height: 6rem;
+        padding: 5px;
+        margin-block: 20px;
+        border-radius: 20px;
+    }
+    
+}
+@media (max-width: 450px) {
+    .ltext{
+        width: 500%;
+        padding-right: 5px;
+    }
+    .limage{
+        height: 3.4rem;
+        border-radius: 10px;
+    }
+    .lcard{
+        max-height: 4rem;
+        border-radius: 10px;
+    }
+    .lname{
+        font-size: 8px;
+    }
+    .ldesc{
+        font-size: 6px;
+    }
+}
+@media (max-width: 350px) {
+    .ltext{
+        width: 900%;
+    }
+    .limage{
+        height: 2.5rem;
+        border-radius: 5px;
+    }
+    .lcard{
+        max-height: 3rem;
+        border-radius: 5px;
+    }
+    .lname{
+        font-size: 7px;
+    }
+    .ldesc{
+        font-size: 5px;
+    }
 }

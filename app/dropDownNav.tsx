@@ -75,7 +75,7 @@ const DropdownNav: React.FC = () => {
       {/* Dropdown Menu */}
       {isOpen && (
         <ul>
-          <a onClick={toggleMenu} href="#Home"><li style={{fontSize: showMenuButton ? "15px" : "10px",paddingInline: showMenuButton && (windowWidth! >= 630) ? "50px" : "15px"}}>Home <span style={{fontSize:"10px",fontWeight:"bold"}}>❯</span></li></a>
+          <a onClick={toggleMenu} href="#Home"><li style={{fontSize: showMenuButton ? "15px" : "10px",paddingInline: showMenuButton && (windowWidth! >= 630) ? "50px" : "15px"}}>Home</li></a>
           <a href="#region-1"><li style={{fontSize: showMenuButton ? "15px" : "10px",paddingInline: showMenuButton && (windowWidth! >= 630) ? "50px" : "15px"}}>Mondstadt</li></a>
           <a href="#region-2"><li style={{fontSize: showMenuButton ? "15px" : "10px",paddingInline: showMenuButton && (windowWidth! >= 630) ? "50px" : "15px"}}>Liyue </li></a>
           <a href="#region-3"><li style={{fontSize: showMenuButton ? "15px" : "10px",paddingInline: showMenuButton && (windowWidth! >= 630) ? "50px" : "15px"}}>Inazuma </li></a>

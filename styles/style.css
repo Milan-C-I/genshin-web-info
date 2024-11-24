@@ -109,6 +109,7 @@
     position: relative;
     display:none;
 }
+
 .dropDownNav > button{
     width:30px;
     height:30px;
@@ -118,6 +119,10 @@
     border: 5px outset rgba(255, 0, 242,0.5);
     border-radius: 100%;
     cursor: pointer;
+    transition: all 0.5s ease !important;
+}
+.dropDownNav > button:hover{
+  scale: 1.2;
 }
 .dropDownNav > button  > div > hr{
     width: 8px; 
@@ -132,13 +137,14 @@
     padding : 10px;
     background: linear-gradient(45deg,rgba(245, 171, 255, 0.75),rgba(255, 255, 255, 0.75));
     backdrop-filter: blur(1px);
-    border : 1px solid #fff;
+    border : 2px solid #fff;
     border-radius: 4px;
     box-Shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     list-style: none;
     z-index: 1000;
     animation: popIn 0.75s ease;
 }
+
 .dropDownNav > ul > a > li{
     font-size: 10px;
     padding: 8px; 
