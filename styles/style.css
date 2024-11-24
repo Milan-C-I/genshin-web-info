@@ -42,7 +42,6 @@
   margin: 0px auto;
   height: 70vh;
   border-radius: 0px 0px 80px 80px;
-  /* background: linear-gradient(90deg,rgba(55, 108, 255, 0.9),rgba(255, 255, 255, 0.5),rgba(55, 108, 255, 0.9)); */
   background-image: url("/img/genshin_hero.jpg");
   background-position: top;
   background-repeat: no-repeat;
@@ -98,7 +97,6 @@
     rgba(255, 255, 255, 0.5),
     rgba(55, 108, 255, 0.9)
   );
-  /* border-radius: 20px; */
 }
 .swiper-image {
   width: 100%;
@@ -114,7 +112,6 @@
     width:30px;
     height:30px;
     background: none;
-    /* padding: 5px 5px; */
     color: #fff;
     border: 5px outset rgba(255, 0, 242,0.5);
     border-radius: 100%;
