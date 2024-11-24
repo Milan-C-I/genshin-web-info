@@ -16,7 +16,7 @@ async function connect(){
 }
 export async function getCharacters(r?:string) {
     try {
-        const characters = JSON.parse(JSON.stringify(await collection.find({region: r}).toArray()));
+        const characters = JSON.parse(JSON.stringify(await collection.find({region: r}).sort({character_name:1}).toArray()));
         return characters;
     } catch (error) {
         console.error("Error fetching characters:", error);
