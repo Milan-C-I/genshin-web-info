@@ -2,16 +2,16 @@
 import Image from "next/image";
 import "@/styles/card.css";
 import { useEffect, useRef, useState } from "react";
-import { Honk, Russo_One, Trade_Winds } from "next/font/google";
+import { Trade_Winds } from "next/font/google";
 
 const honk = Trade_Winds({
     weight: "400",
     subsets: ["latin"],
 });
 
-export default function LongCard({archon,side}:{archon?:any,side?:string}) {
+export default function LongCard({archon,side,textcolor}:{archon?:any,side?:string,textcolor?:string}) {
 
-    const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -45,6 +45,7 @@ export default function LongCard({archon,side}:{archon?:any,side?:string}) {
                 opacity: isVisible ? 1 : 0,
                 transition: "opacity 1s ease, transform 1s ease",
                 transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
+                backgroundImage: `linear-gradient(white, rgba(255, 255, 255, 0)), url('Archons/${archon?.character_name.split(' ').join('')}_namecard.png')`,
             }}
         >
             <div className="limage"
@@ -52,26 +53,25 @@ export default function LongCard({archon,side}:{archon?:any,side?:string}) {
               opacity: isVisible ? 1 : 0,
               transition: "opacity 1s ease, transform 2s ease",
               transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
+              backgroundImage: `linear-gradient(white, rgba(255, 255, 255, 0)), url('Archons/${archon?.character_name.split(' ').join('')}_namecard.png')`,
           }}>
-            <Image  src="/img/arlechino.png" alt='img' fill  objectPosition="center" objectFit="cover"></Image>
+            <Image  src={`/Archons/${archon?.character_name.split(' ').join('')}.png`} alt='img' fill  objectPosition="center" objectFit="cover"></Image>
             </div>
             <div className="ltext">
             <h1 className={`lname ${honk.className}`} style={{
+                textShadow : `2px 2px 2px ${textcolor}`,
                 opacity: isVisible ? 1 : 0,
                 zIndex:-1,
                 transition: "opacity 2s ease, transform 1.5s ease",
                 transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",}} >
-                  {/* Arlecchino  */}
                   {archon?.character_name}
-                  <hr></hr></h1>
+                  <hr/></h1>
             <p className="ldesc"
             style={{
                 opacity: isVisible ? 1 : 0,
                 transition: "opacity 2s ease, transform 2s ease",
                 transform: isVisible ? "translateY(0)" : "translateY(25%)",
             }}>
-              {/* Arlecchino, also known by her codename "The Knave," is a playable Pyro character in Genshin Impact.
-She is the Fourth of the Eleven Fatui Harbingers and the current head of the House of the Hearth. She is addressed as "Father" by members of the House, who she calls her "children." */}
               {archon?.description}</p>
             </div>
         </div>
