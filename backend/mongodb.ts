@@ -1,6 +1,8 @@
 import { MongoClient } from "mongodb";
 // import { NextApiRequest, NextApiResponse } from "next";
 
+let archon = ["Venti","Zhongli","Raiden Shogun","Nahida","Neuvillette"];
+
 let client: MongoClient = new MongoClient(process.env.MONGO_URI!);
 let connected = false;
 await connect();
@@ -18,5 +20,36 @@ export async function getCharacters(r?:string) {
         return characters;
     } catch (error) {
         console.error("Error fetching characters:", error);
+    }
+}
+
+export async function getArchons() {
+    try{
+        const archons = JSON.parse(JSON.stringify(await collection.aggregate([
+            {
+              $match: {
+                character_name: { $in: archon },
+              },
+            },
+            {
+              $addFields: {
+                order: {
+                  $indexOfArray: [archon, "$character_name"],
+                },
+              },
+            },
+            {
+              $sort: { order: 1 },
+            },
+            {
+              $project: {
+                order: 0,
+              },
+            },
+          ]).toArray()));
+        return archons;
+    }
+    catch (error) {
+        console.error("Error fetching archons:", error);
     }
 }
