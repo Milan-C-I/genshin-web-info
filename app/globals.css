@@ -41,17 +41,12 @@ a {
     color-scheme: dark;
   }
 }
-.bgImage{
-  width:100vw;
-  height:100vh;
-  position:fixed;
-  object-fit: cover;
-  object-position: center;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  z-index:-4;
+body{
+  background-image: url("/img/childe.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 body::-webkit-scrollbar {
   width:1px;

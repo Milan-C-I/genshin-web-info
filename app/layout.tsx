@@ -20,9 +20,6 @@ export default function RootLayout({
       </head>
       <body id="Home">
         {children}
-        <div className="bgImage">
-          <Image src="/img/childe.jpg" alt="bg" fill></Image>
-        </div>
       </body>
     </html>
   );
