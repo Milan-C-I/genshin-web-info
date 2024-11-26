@@ -9,14 +9,18 @@ await connect();
 const db = client.db("genshin-web-info");
 const collection = db.collection("characters");
 async function connect(){
-    if(!connected){
-        await client?.connect();
+    try{
+      if(!connected){
         connected = true;
+        await client?.connect();
+    }
+    }catch(error){
+      connected = false;
     }
 }
 export async function getCharacters(r?:string) {
     try {
-        const characters = JSON.parse(JSON.stringify(await collection.find({region: r}).sort({character_name:1}).toArray()));
+        const characters = JSON.parse(JSON.stringify(await collection.find({region: r}).sort({name:1}).toArray()));
         return characters;
     } catch (error) {
         console.error("Error fetching characters:", error);
@@ -28,13 +32,13 @@ export async function getArchons() {
         const archons = JSON.parse(JSON.stringify(await collection.aggregate([
             {
               $match: {
-                character_name: { $in: archon },
+                name: { $in: archon },
               },
             },
             {
               $addFields: {
                 order: {
-                  $indexOfArray: [archon, "$character_name"],
+                  $indexOfArray: [archon, "$name"],
                 },
               },
             },
