@@ -2,12 +2,17 @@
 import Image from "next/image";
 import "@/styles/card.css";
 import { useEffect, useRef, useState } from "react";
-import { Trade_Winds } from "next/font/google";
+import { Fredoka, Trade_Winds } from "next/font/google";
 
-const honk = Trade_Winds({
+const tradeWinds = Trade_Winds({
     weight: "400",
     subsets: ["latin"],
 });
+
+const fredoka_font = Fredoka({
+    weight: "400",
+    subsets: ["latin"],
+})
 
 export default function LongCard({archon,side,textcolor}:{archon?:any,side?:string,textcolor?:string}) {
 
@@ -43,9 +48,9 @@ export default function LongCard({archon,side,textcolor}:{archon?:any,side?:stri
             ref={cardRef}
             style={{
                 opacity: isVisible ? 1 : 0,
-                transition: "opacity 1s ease, transform 1s ease",
+                transition: "opacity 1s ease, transform 1s ease,background 0.5s ease,scale 0.5s ease",
                 transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
-                backgroundImage: `linear-gradient(white, rgba(255, 255, 255, 0)), url('Archons/${archon?.character_name.split(' ').join('')}_namecard.png')`,
+                backgroundImage: `linear-gradient(white, rgba(255, 255, 255, 0)), url('Archons/${archon?.name.split(' ').join('')}_namecard.png')`,
             }}
         >
             <div className="limage"
@@ -53,20 +58,20 @@ export default function LongCard({archon,side,textcolor}:{archon?:any,side?:stri
               opacity: isVisible ? 1 : 0,
               transition: "opacity 1s ease, transform 2s ease",
               transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",
-              backgroundImage: `linear-gradient(white, rgba(255, 255, 255, 0)), url('Archons/${archon?.character_name.split(' ').join('')}_namecard.png')`,
+              backgroundImage: `linear-gradient(white, rgba(255, 255, 255, 0)), url('Archons/${archon?.name.split(' ').join('')}_namecard.png')`,
           }}>
-            <Image  src={`/Archons/${archon?.character_name.split(' ').join('')}.png`} alt='img' fill  objectPosition="center" objectFit="cover"></Image>
+            <Image  src={`/Archons/${archon?.name.split(' ').join('')}.png`} alt='img' fill  objectPosition="center" objectFit="cover"></Image>
             </div>
             <div className="ltext">
-            <h1 className={`lname ${honk.className}`} style={{
+            <h1 className={`lname ${tradeWinds.className}`} style={{
                 textShadow : `2px 2px 2px ${textcolor}`,
                 opacity: isVisible ? 1 : 0,
                 zIndex:-1,
                 transition: "opacity 2s ease, transform 1.5s ease",
                 transform: isVisible ? "translateX(0)" : side === "right" ? "translateX(25%)" : "translateX(-25%)",}} >
-                  {archon?.character_name}
+                  {archon?.name}
                   <hr/></h1>
-            <p className="ldesc"
+            <p className={`ldesc ${fredoka_font.className}`}
             style={{
                 opacity: isVisible ? 1 : 0,
                 transition: "opacity 2s ease, transform 2s ease",

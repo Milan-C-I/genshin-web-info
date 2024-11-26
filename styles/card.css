@@ -15,7 +15,6 @@ hr{
     background: rgba(255, 255, 255,0.6);
     padding: 20px;
     display: flex;
-    transition: all 0.5s ease !important;
     background-position: center;
     object-fit: cover;
 }
@@ -51,7 +50,7 @@ hr{
     padding-left:30px;
 }
 .ldesc {
-    font-family: 'system-ui';
+    font-weight: bolder;
     grid-area: desc;
     padding:10px 0 0 30px;
 }
@@ -60,13 +59,13 @@ hr{
 }
 
 .ltext::-webkit-scrollbar-track {
-    background: none; /* Track background */
-    border-radius: 20px; /* Rounded edges */
+    background: none;
+    border-radius: 20px;
 }
 
 .ltext::-webkit-scrollbar-thumb {
-    background: #fff; /* Scrollbar color */ 
-    border-radius: 10px; /* Rounded edges */
+    background: #fff;
+    border-radius: 10px;
 }
 @media (max-width: 1500px) {
     .lcard {
