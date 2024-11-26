@@ -123,7 +123,6 @@
   color:black;
 }
 .charDesc {
-  font-family: "system-ui";
   padding-top:5px;
 }
 .regionCharSection::-webkit-scrollbar {
@@ -131,30 +130,30 @@
 }
 
 .regionCharSection::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Track background */
-  border-radius: 20px; /* Rounded edges */
+  background: #f0f0f0;
+  border-radius: 20px;
 }
 
 .regionCharSection::-webkit-scrollbar-thumb {
-  background: #cdf76d; /* Thumb color */
-  border-radius: 10px; /* Rounded edges */
+  background: #cdf76d;
+  border-radius: 10px;
 }
 
 .regionCharSection::-webkit-scrollbar-thumb:hover {
-  background: #8afa22; /* Darker color on hover */
+  background: #8afa22;
 }
 .charDetails::-webkit-scrollbar {
   width:1px;
   
 }
 .charDetails::-webkit-scrollbar-track {
-  background: none; /* Track background */
-  border-radius: 20px; /* Rounded edges */
+  background: none;
+  border-radius: 20px;
 }
 
 .charDetails::-webkit-scrollbar-thumb {
-  background: #ffffff; /* Thumb color */
-  border-radius: 10px; /* Rounded edges */
+  background: #ffffff;
+  border-radius: 10px;
 } 
 @media (max-width: 1350px) {
 .regionContent > p {

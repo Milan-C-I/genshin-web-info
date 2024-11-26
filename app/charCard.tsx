@@ -1,10 +1,13 @@
 'use client'
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Trade_Winds } from "next/font/google";
-// import { Character } from "@/backend/interface";
+import { Fredoka, Trade_Winds } from "next/font/google";
 
 const fontName = Trade_Winds({
+    weight: '400',
+    subsets: ['latin'],
+})
+const fredoka_font = Fredoka({
     weight: '400',
     subsets: ['latin'],
 })
@@ -40,33 +43,29 @@ export default function CharCard({char,btncolor}:{char?:any,btncolor?:string}) {
             style={{
                 opacity: isVisible ? 1 : 0 ,
                 transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
-                transition: 'opacity 1s ease, transform 1s ease'
-            }}
-        >
+                transition: 'opacity 1s ease, transform 1s ease,background-color 0.5s ease',
+            }}>
             <div className="charImage" style={{
                     opacity: isVisible ? 1 : 0 ,
                     transform: isVisible ? 'translateY(0)' : 'translateY(50%)',
-                    transition: 'opacity 2s ease, transform 2s ease'
+                    transition: 'opacity 1s ease, transform 1s ease'
                 }}>
-                <Image  src={char?.img_url} alt={char?.character_name} fill  objectPosition="center" objectFit="cover"
-                
-                ></Image>
+                <Image src={char?.img_url} alt={char?.name} fill  objectPosition="center" objectFit="cover"/>
             </div>
             <div className="charDetails">
             <h1 className={`charName ${fontName.className}`}
             style={{
                 opacity: isVisible ? 1 : 0 ,
                 transform: isVisible ? 'translateY(0)' : 'translateY(50%)',
-                transition: 'opacity 2s ease, transform 2s ease'
+                transition: 'opacity 1s ease, transform 1s ease'
             }}>
-                {char?.character_name}
-                {/* Arlecchino */}
+                {char?.name}
             <hr></hr></h1>
-            <p className="charDesc"
+            <p className={`charDesc ${fredoka_font.className}`}
             style={{
                 opacity: isVisible ? 1 : 0 ,
-                transform: isVisible ? 'translateY(0)' : 'translateX(50%)',
-                transition: 'opacity 2s ease, transform 2s ease'
+                transform: isVisible ? 'translateX(0)' : 'translateX(50%)',
+                transition: 'opacity 1s ease, transform 1s ease'
             }}
             >
                 {char?.description}

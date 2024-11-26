@@ -3,7 +3,6 @@ import { Sour_Gummy } from 'next/font/google';
 import CharCard from './charCard';
 import { getCharacters } from '@/backend/mongodb';
 import Image from 'next/image';
-// import { Character } from '@/backend/interface';
 const fontName = Sour_Gummy({
     weight: '400',
     subsets: ['latin'],   
@@ -13,7 +12,7 @@ const headerFont = Sour_Gummy({
     subsets: ['latin'],
 })
 
-export default  async function Region({region,regionalcolor}:{region?:any,regionalcolor?:any}) {
+export default  async function Region({region}:{region?:any}) {
     const characters = await getCharacters(region?.name.toString());
     return (
         <div className="region" id={`region-${region?.id}`}>
@@ -24,7 +23,7 @@ export default  async function Region({region,regionalcolor}:{region?:any,region
                     {region?.description}
                 </p>
                 <div className='regionCharSection'>
-                   {characters.length > 0 ? characters?.map((c:any) => <CharCard key={c._id} char={c} btncolor={regionalcolor?.color}/>) : <h1 className={headerFont.className}>Coming Soon ...</h1> }
+                   {characters.length > 0 ? characters?.map((c:any) => <CharCard key={c._id} char={c} btncolor={region?.color}/>) : <h1 className={headerFont.className}>Coming Soon ...</h1> }
                 </div>
                 {region?.emblem ? 
                 <div className='emblem'><Image src={region?.emblem} alt="emblem" fill/></div> : null}
