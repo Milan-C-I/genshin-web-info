@@ -2,6 +2,7 @@
     {
         "id":"1",
         "name":"Mondstadt",
+        "color": "#7cffc2",
         "emblem":"https://static.wikia.nocookie.net/gensin-impact/images/c/ce/Mondstadt_Emblem_Night.png/revision/latest?cb=20231103102409",
         "bgImage":"/Mondstadt/mondstadt.jpg",
         "heading":"A city of freedom that lies in the northeast of Teyvat.",
@@ -10,6 +11,7 @@
     {
         "id":"2",
         "name":"Liyue",
+        "color": "#ffe664",
         "emblem":"https://static.wikia.nocookie.net/gensin-impact/images/c/c3/Liyue_Emblem_Night.png/revision/latest?cb=20231103102407",
         "bgImage":"/Liyue/liyue.jpg",
         "heading":"A bountiful harbor that lies in the east of Teyvat.",
@@ -18,6 +20,7 @@
     {
         "id":"3",
         "name":"Inazuma",
+        "color": "#efa1ff",
         "emblem":"https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Inazuma_Emblem_Night.png/revision/latest?cb=20231103102405",
         "bgImage":"/Inazuma/inazuma.jpg",
         "heading":"An Isolated Archipelago Far East of Teyvat.",
@@ -26,6 +29,7 @@
     {
         "id":"4",
         "name":"Sumeru",
+        "color": "#67ff60",
         "emblem":"https://static.wikia.nocookie.net/gensin-impact/images/e/ef/Sumeru_Emblem_Night.png/revision/latest?cb=20231103102413",
         "bgImage":"/Sumeru/sumeru.jpg",
         "heading":"The city of scholars located in the west-central part of Teyvat.",
@@ -34,6 +38,7 @@
     {
         "id":"5",
         "name":"Fontaine",
+        "color": "#91d0ff",
         "emblem":"https://static.wikia.nocookie.net/gensin-impact/images/0/06/Fontaine_Emblem_Night.png/revision/latest?cb=20231103102400",
         "bgImage":"/Fontaine/fontaine.jpg",
         "heading":"A terrestrial sea in the center of Teyvat.",
@@ -42,6 +47,7 @@
     {
         "id":"6",
         "name":"Natlan",
+        "color": "#ff9b9b",
         "emblem":"https://static.wikia.nocookie.net/gensin-impact/images/3/34/Natlan_Emblem_Night.png/revision/latest?cb=20240828233634",
         "bgImage":"/Natlan/natlan.jpg",
         "heading":"The nation of oaths situated in the western regions of Teyvat.",
@@ -50,6 +56,7 @@
     {
         "id":"7",
         "name":"Snezhnaya",
+        "color": "#c1fff9",
         "bgImage":"/Snezhnaya/snezhnaya.jpg",
         "heading":"She is a god with no love left for her people, nor do they have any left for her.",
         "description":"Her followers only hope to be on her side when the day of her rebellion against the divine comes at last."
