@@ -25,8 +25,8 @@ const DropdownNav: React.FC = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
 
     
     return () => {

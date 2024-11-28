@@ -89,18 +89,12 @@
 .swipper-container {
   width: 100%;
   margin: auto;
-  margin-block: 50px;
-  padding: 30px;
-  background: linear-gradient(
-    90deg,
-    rgba(55, 108, 255, 0.9),
-    rgba(255, 255, 255, 0.5),
-    rgba(55, 108, 255, 0.9)
-  );
-}
-.swiper-image {
-  width: 100%;
-  height: 300px;
+  margin-block: clamp(1rem,3vw,3rem);
+  overflow: hidden;
+  padding:clamp(0.5rem,6vw,6rem);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .dropDownNav{
@@ -163,57 +157,6 @@
         opacity: 1;
         transform: scale(1);
     }
-}
-@media (max-width: 1800px) {
-  .swiper-image {
-    height: 250px;
-  }
-}
-@media (max-width: 1450px) {
-  .swiper-image {
-    height: 200px;
-  }
-}
-@media (max-width: 1250px) {
-  .swiper-image {
-    height: 150px;
-  }
-}
-@media (max-width: 1050px) {
-  .swiper-image {
-    height: 200px;
-  }
-}
-@media (max-width: 890px) {
-  .swiper-image {
-    height: 150px;
-  }
-}
-@media (max-width: 800px) {
-  .swiper-image {
-    height: 100px;
-  }
-}
-@media (max-width: 600px) {
-  .swiper-image {
-    height: 200px;
-  }
-}
-@media (max-width: 575px) {
-  .swiper-image {
-    height: 150px;
-  }
-}
-@media (max-width: 515px) {
-  .swiper-image {
-    height: 150px;
-  }
-}
-@media (max-width: 420px) {
-  .swiper-image {
-    width: 100%;
-    height: 100px;
-  }
 }
 
 /* header */
