@@ -79,6 +79,7 @@ export default function LongCard({archon,side,textcolor}:{archon?:any,side?:stri
             }}>
               {archon?.description}</p>
             </div>
+            <div className="elementofchar" style={{backgroundImage: `url(${`/elements/Element_${archon?.vision}.webp`})`}}></div>
         </div>
     )
 }

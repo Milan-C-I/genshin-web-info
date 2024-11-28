@@ -5,7 +5,8 @@ hr{
     margin-block:2px;
 }
 .lcard {
-    margin-block:60px;
+    position: relative;
+    margin-bottom:60px;
     margin-left:10px;
     margin-right:auto;
     width: 60vw;
@@ -54,6 +55,20 @@ hr{
     grid-area: desc;
     padding:10px 0 0 30px;
 }
+.elementofchar{
+    position: absolute;
+    top:clamp(0.2rem,0.8vw,0.8rem);
+    right:clamp(0.2rem,0.8vw,0.8rem);
+    width: clamp(0.5rem,3vw,3rem);
+    height: clamp(0.5rem,3vw,3rem);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s ease;
+}
+.elementofchar:hover{
+    scale: 1.1;
+}
 .ltext::-webkit-scrollbar {
     width: 1px;
 }
@@ -97,7 +112,7 @@ hr{
     .lcard{
         max-height: 10rem;
         padding: 15px;
-        margin-block: 40px;
+        margin-bottom: 40px;
     }
 }
 @media (max-width: 1000px) {
@@ -130,7 +145,7 @@ hr{
     .lcard{
         max-height: 8rem;
         padding: 10px;
-        margin-block: 30px;
+        margin-bottom: 30px;
         border-radius: 30px;
     }
     
@@ -156,7 +171,7 @@ hr{
     .lcard{
         max-height: 6rem;
         padding: 5px;
-        margin-block: 20px;
+        margin-bottom: 20px;
         border-radius: 20px;
     }
     
