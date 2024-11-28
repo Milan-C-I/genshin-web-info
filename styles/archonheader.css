@@ -1,0 +1,54 @@
+.archonheader{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: auto;
+    margin-block: clamp(1rem,5vw,5rem);
+    border-radius: 5px;
+    padding-block: clamp(0rem,1.5vw,1.5rem);
+    padding-inline: clamp(0.5rem,3vw,3rem);
+}
+.archonhead{
+    width: fit-content;
+    font-weight: bold;
+    /* border-block:1px solid rgb(255, 255, 255); */
+    padding-inline: 10px;
+    font-weight: bold;
+    font-size: clamp(0.5rem,3vw,3rem);
+    background: linear-gradient(
+        90deg,
+        rgb(0, 68, 255),
+        rgb(255, 255, 255),
+        rgb(0, 68, 255)
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 100px black;
+    transition: all 0.5s ease;
+}
+.archonhead:hover{
+    padding-inline: 20px;
+}
+.elementalImages{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    margin-block: 10px;
+    margin-inline: 10px;
+}
+.ele{
+    width: clamp(0.5rem,3vw,3rem);
+    height: clamp(0.5rem,3vw,3rem);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s ease;
+}
+.ele:hover{
+    scale: 1.25;
+}
