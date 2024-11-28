@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -7,20 +7,38 @@ import 'swiper/css/pagination';
 import "@/styles/style.css";
 
 const photos = [
-  "/img/monstad.jpg",
-  "/img/genshin_hero.jpg",
-  "/img/monstad.jpg",
-  "/img/arlechino.png",
-  "/img/childe.jpg",
+  "/CarouselImages/ei.jpg",
+  "/CarouselImages/natlan.jpg",
+  "/CarouselImages/yae.jpg",
+  "/CarouselImages/arc.jpg",
 ];
 
 const Carousel = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+    }
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
   return (
-    <div className="swipper-container">
+    <div className="swipper-container" style={{backgroundImage: `url(${(windowWidth !== null && windowWidth > 1024) ? photos[(activeSlide+1)%photos.length]:photos[activeSlide]})`,
+      transition: 'background-image 0.5s ease-in-out',
+    }}>
       <Swiper
         modules={[Pagination,Autoplay]}
         spaceBetween={50}
-        slidesPerView={3}
+        slidesPerView={1}
         pagination={{
             clickable: true,
             dynamicBullets: true,
@@ -30,25 +48,27 @@ const Carousel = () => {
         speed={2000}
         grabCursor={true}
         scrollbar
-        breakpoints={{
+        breakpoints={
+          {
             320: {
-                slidesPerView: 1,
-              },
-              600: {
-                slidesPerView: 2,
-              },
-              1050: {
-                slidesPerView: 3,
-              },
-          }}
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }
+        }
+        onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
       >
         {photos.map((photo, index) => (
           <SwiperSlide key={index}>
             <img
-            className='swiper-image'
               src={photo}
               alt={`Photo ${index + 1}`}
-              style={{ borderRadius: '20px',objectFit: 'cover',objectPosition: 'center' }}
+              style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
             />
           </SwiperSlide>
         ))}
