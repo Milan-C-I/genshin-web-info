@@ -1,0 +1,234 @@
+.character-Details{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    margin: auto;
+    background-image: url('/img/raidenbg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.charGrid{
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow:hidden;
+    margin: 0 !important;
+    margin-top: 5rem !important;
+}
+.navChar {  
+    background:black;
+    background-Image: linear-gradient(90deg,rgb(0, 0, 0), rgba(255, 255, 255, 0)), url('/Archons/RaidenShogun_namecard.png');
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+}
+.active-slide {
+    border: 1px solid white;
+}
+.navChar >h1{
+    font-weight: lighter;
+    padding: 20px 30px;
+    text-transform: uppercase;
+    color:white;
+    font-size: 1vw;
+}
+.topNavBar{
+    width: 100%;
+    top:0;
+    left:0;
+    position: absolute;
+    height:5rem;
+    background: #00000050;
+    backdrop-filter: blur(10px);
+    z-index: 5;
+    display: flex;
+    gap:5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+.topNavBar > span{
+    color:white;
+}
+
+.leftSideBar{
+    background: #00000050;
+    width: 4rem;
+    height: 91.5%;
+    margin-top: 5rem;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    position:relative;
+}
+.rightSideBar{
+    overflow: hidden;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:4rem;
+    flex-direction: column;
+    text-align: center;
+    background: #00000050;
+    width: 4rem;
+    height: 91.5%;
+    margin-top: 5rem;
+    backdrop-filter: blur(10px);
+}
+.rightSideBar > span{
+    padding: 1.5rem 0.5rem;
+    transform: rotate(90deg);
+    color:white;
+    transition: all 0.5s ease;
+}
+.rightSideBar > span:hover{
+    cursor: pointer;
+    background-color:rgba(105, 0, 109, 0.5);
+}
+.scrollSection{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.scrollUp,.scrollDown{
+    border: 1px solid black;
+    width: 100%;
+    background: linear-gradient(45deg,rgba(255, 2, 192, 0.5),rgba(153, 0, 255, 0.5));
+    aspect-ratio: 1/1;
+    position: absolute;
+    border: none;
+    left: 0;
+}
+.scrollDown{
+    bottom:0;
+}
+.scrollUp{
+    bottom:23%;
+}
+.scrollSection > span{
+    color: white;
+    position: absolute;
+    width:2rem;
+    height:2rem;
+    bottom: 15%;
+    left:15%;
+    transform: rotate(90deg);
+}
+
+  @media screen and (max-width: 768px) {
+    .navChar {
+        width: 40vw;  /* Adjust for smaller screens */
+        aspect-ratio: 2/1;
+    }
+    .navChar > h1 {
+        font-size: 4vw;  /* Increase text size on smaller screens */
+    }
+}
+
+/* Full character details */
+
+.characterDetailsContainer {
+    width: 72vw;
+    aspect-ratio: 2 / 1.25;
+    position: relative;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 5rem;
+}
+
+.characterDetailsContent {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+
+.characterTitle {
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    width: fit-content;
+    margin-bottom: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid white;
+    text-transform: uppercase;
+}
+.characterDescription {
+    color: white;
+    font-size: 15px;
+    max-width: 40%;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.sliding-out-Text{
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0s ease;
+    transform: translateY(100px);
+}
+.sliding-in-Text{
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s  ease;
+    transform: translateY(0);
+}
+/* .sliding-out-desc{
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0s ease;
+    transform: translateX(-100px);
+}
+.sliding-in-desc{
+    opacity: 1;
+    transition: transform 0.5s 0.2s ease, opacity 0.5s  0.2s ease;
+    transform: translateX(0);
+} */
+
+.characterLabel {
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding-right: 10px;
+}
+
+.characterAttributes {
+    width: 20vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-block: 30px;
+}
+
+.characterLanguages {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-block: 50px;
+}
+
+.characterImage {
+    width: 65rem;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.characterImage.sliding-in {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    transform: translateY(10%) translateX(10%);
+}
+
+.characterImage.sliding-out {
+    transition: transform 0.5s ease, opacity 0.2s ease;
+    opacity: 0;
+    transform: translateY(10%) translateX(40%);
+}
+
