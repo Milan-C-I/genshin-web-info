@@ -1,5 +1,5 @@
 import '@/styles/style.css';
-import { Arizonia, Bangers, Pacifico, Poiret_One, Red_Rose, Rubik_Moonrocks,  } from 'next/font/google';
+import { Arizonia, Pacifico, Poiret_One } from 'next/font/google';
 import DropdownNav from './dropDownNav';
 const headerFont = Arizonia({
     weight:'400',
