@@ -18,7 +18,7 @@ async function connect(){
       connected = false;
     }
 }
-export async function getCharacters(r?:string) {
+export async function getCharactersByRegion(r?:string) {
     try {
         const characters = JSON.parse(JSON.stringify(await collection.find({region: r}).sort({name:1}).toArray()));
         return characters;
@@ -27,6 +27,14 @@ export async function getCharacters(r?:string) {
     }
 }
 
+export async function getCharacterByName(n?:string) {
+    try {
+        const character = await collection.findOne({name: n});
+        return character;
+    } catch (error) {
+        console.error("Error fetching characters:", error);
+    }
+}
 export async function getArchons() {
     try{
         const archons = JSON.parse(JSON.stringify(await collection.aggregate([
