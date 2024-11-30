@@ -50,7 +50,9 @@
     align-items: center;
     padding: 0 2rem;
 }
-.topNavBar > span{
+.topNavBar > button{
+    border:none;
+    background:none;
     color:white;
 }
 
@@ -78,13 +80,15 @@
     margin-top: 5rem;
     backdrop-filter: blur(10px);
 }
-.rightSideBar > span{
-    padding: 1.5rem 0.5rem;
+.rightSideBar > button{
+    padding: 1.5rem 0.75rem;
     transform: rotate(90deg);
     color:white;
+    border: none;
+    background: none;
     transition: all 0.5s ease;
 }
-.rightSideBar > span:hover{
+.rightSideBar > button:hover{
     cursor: pointer;
     background-color:rgba(105, 0, 109, 0.5);
 }
@@ -173,16 +177,6 @@
     transition: transform 0.5s ease, opacity 0.5s  ease;
     transform: translateY(0);
 }
-/* .sliding-out-desc{
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0s ease;
-    transform: translateX(-100px);
-}
-.sliding-in-desc{
-    opacity: 1;
-    transition: transform 0.5s 0.2s ease, opacity 0.5s  0.2s ease;
-    transform: translateX(0);
-} */
 
 .characterLabel {
     color: white;

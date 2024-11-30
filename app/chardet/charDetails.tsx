@@ -1,33 +1,50 @@
 'use client'
 import "@/styles/charDetails.css"
 import { Fredoka, Montserrat } from "next/font/google"    
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FullCharInfo from "./fullcharInfo";
 import { Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation } from "swiper/modules";
+import { useRouter, useSearchParams } from "next/navigation";
 
 
 const montserrat_font = Montserrat({
     weight: "400",
     subsets: ["latin"],
 })
-export default function CharDetails({ inazumachar }: { inazumachar: any }) {
-    const [currentChar, setCurrentChar] = useState(inazumachar[0]);
+export default function CharDetails({ region , ind }: { region: any , ind: number}) {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const [currentChar, setCurrentChar] = useState(region[ind]);
     const [activeSlideIndex, setActiveSlideIndex] = useState(0);
     const handleSlideChange = (swiper: any) => {
-        setCurrentChar(inazumachar[swiper.realIndex]);
+        setCurrentChar(region[swiper.realIndex]);
         setActiveSlideIndex(swiper.realIndex);
+
+        router.push(`/chardet?char=${region[swiper.realIndex]?.name}`);
     };
+
+    useEffect(() => {
+        const charName = searchParams.get("char");
+        if (charName) {
+            const index = region.findIndex((char: any) => char.name === charName);
+            if (index !== -1 && index !== activeSlideIndex) {
+                setActiveSlideIndex(index);
+                setCurrentChar(region[index]);
+            }
+        }
+    }, [searchParams, region, activeSlideIndex]);
+
     return (
         <div className="character-Details">
             <div className="topNavBar">
-                <span className={montserrat_font.className}>HOME</span>
-                <span className={montserrat_font.className}>SKILLS</span>
-                <span className={montserrat_font.className}>CONSTELLATION</span>
-                <span className={montserrat_font.className}>PASSIVE</span>
+                <button className={montserrat_font.className} onClick={() => router.push("/")}>HOME</button>
+                <button className={montserrat_font.className}>SKILLS</button>
+                <button className={montserrat_font.className}>CONSTELLATION</button>
+                <button className={montserrat_font.className}>PASSIVE</button>
             </div>
             <div className="leftSideBar">
                 <div className="scrollSection">
@@ -49,8 +66,9 @@ export default function CharDetails({ inazumachar }: { inazumachar: any }) {
             loop={true}
             onSlideChange={handleSlideChange}
             className="charGrid"
+            initialSlide={ind}
         >
-            {inazumachar?.map((c: any, index: number) => (
+            {region?.map((c: any, index: number) => (
                 <SwiperSlide key={c._id} className={`navChar ${montserrat_font.className} ${index === activeSlideIndex ? 'active-slide' : ''}`}>
                     <h1>{c?.name}</h1>
                 </SwiperSlide>
@@ -58,12 +76,12 @@ export default function CharDetails({ inazumachar }: { inazumachar: any }) {
         </Swiper>
             <FullCharInfo char={currentChar}/>
             <div className="rightSideBar">
-                <span className={montserrat_font.className}>MONDSTADT</span>
-                <span className={montserrat_font.className}>LIYUE</span>
-                <span className={montserrat_font.className}>INAZUMA</span>
-                <span className={montserrat_font.className}>SUMERU</span>
-                <span className={montserrat_font.className}>FONTAINE</span>
-                <span className={montserrat_font.className}>NATLAN</span>
+                <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Albedo")}>MONDSTADT</button>
+                <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Baizhu")}>LIYUE</button>
+                <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Arataki Itto")}>INAZUMA</button>
+                <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Alhaitham")}>SUMERU</button>
+                <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Charlotte")}>FONTAINE</button>
+                <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Chasca")}>NATLAN</button>
             </div>
         </div>
     );
