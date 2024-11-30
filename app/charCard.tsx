@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Fredoka, Trade_Winds } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const fontName = Trade_Winds({
     weight: '400',
@@ -16,6 +17,8 @@ export default function CharCard({char,btncolor}:{char?:any,btncolor?:string}) {
     const [isVisible,setIsVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const cardRef = useRef<HTMLDivElement | null>(null);
+
+    const router = useRouter();
 
     useEffect(()=>{
         const observer = new IntersectionObserver((entries)=>{
@@ -77,6 +80,7 @@ export default function CharCard({char,btncolor}:{char?:any,btncolor?:string}) {
             }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={()=>router.push(`/chardet?char=${char?.name}`)}
             ><i className="uil uil-arrow-right"></i></button>
         </div>
     )
