@@ -1,7 +1,7 @@
 import '@/styles/region.css';  
 import { Sour_Gummy } from 'next/font/google'; 
 import CharCard from './charCard';
-import { getCharacters } from '@/backend/mongodb';
+import { getCharactersByRegion } from '@/backend/mongodb';
 import Image from 'next/image';
 const fontName = Sour_Gummy({
     weight: '400',
@@ -13,7 +13,7 @@ const headerFont = Sour_Gummy({
 })
 
 export default  async function Region({region}:{region?:any}) {
-    const characters = await getCharacters(region?.name.toString());
+    const characters = await getCharactersByRegion(region?.name.toString());
     return (
         <div className="region" id={`region-${region?.id}`}>
             <h1 className={headerFont.className}>{region?.name}→<hr></hr></h1>
