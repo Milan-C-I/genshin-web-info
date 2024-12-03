@@ -1,14 +1,14 @@
 'use client'
 import "@/styles/charDetails.css"
 import { Fredoka, Montserrat } from "next/font/google"    
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FullCharInfo from "./fullcharInfo";
-import { Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperClass, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation } from "swiper/modules";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 
 const montserrat_font = Montserrat({
@@ -16,32 +16,29 @@ const montserrat_font = Montserrat({
     subsets: ["latin"],
 })
 export default function CharDetails({ region , ind }: { region: any , ind: number}) {
+    const index = ind;
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const [currentChar, setCurrentChar] = useState(region[ind]);
-    const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+    const [currentChar, setCurrentChar] = useState(region[index]);
+    const [activeSlideIndex, setActiveSlideIndex] = useState(index);
+    const swiperRef = useRef<any>(null);
     const handleSlideChange = (swiper: any) => {
         setCurrentChar(region[swiper.realIndex]);
         setActiveSlideIndex(swiper.realIndex);
+        router.replace(`/chardet?char=${region[swiper.realIndex]?.name}`);
+      };
 
-        router.push(`/chardet?char=${region[swiper.realIndex]?.name}`);
-    };
-
-    useEffect(() => {
-        const charName = searchParams.get("char");
-        if (charName) {
-            const index = region.findIndex((char: any) => char.name === charName);
-            if (index !== -1 && index !== activeSlideIndex) {
-                setActiveSlideIndex(index);
-                setCurrentChar(region[index]);
-            }
+      useEffect(() => {
+        if (swiperRef.current && ind !== undefined) {
+            swiperRef.current.slideToLoop(ind, 0);
         }
-    }, [searchParams, region, activeSlideIndex]);
-
+        setCurrentChar(region[index]);
+        router.replace(`/chardet?char=${region[index]?.name}`);
+    }, [index]);
+      
     return (
         <div className="character-Details">
             <div className="topNavBar">
-                <button className={montserrat_font.className} onClick={() => router.push("/")}>HOME</button>
+                <a href="/" className={montserrat_font.className}>HOME</a>
                 <button className={montserrat_font.className}>SKILLS</button>
                 <button className={montserrat_font.className}>CONSTELLATION</button>
                 <button className={montserrat_font.className}>PASSIVE</button>
@@ -57,16 +54,17 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
                     </button>
                 </div>
             </div>
-            <Swiper
+            <Swiper 
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Navigation]}
             direction="vertical"
             spaceBetween={0}
             slidesPerView={5}
             navigation={{prevEl: '.scrollUp', nextEl: '.scrollDown'}}
             loop={true}
+            // initialSlide={ind}
             onSlideChange={handleSlideChange}
             className="charGrid"
-            initialSlide={ind}
         >
             {region?.map((c: any, index: number) => (
                 <SwiperSlide key={c._id} className={`navChar ${montserrat_font.className} ${index === activeSlideIndex ? 'active-slide' : ''}`}>
