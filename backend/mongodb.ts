@@ -29,7 +29,7 @@ export async function getCharactersByRegion(r?:string) {
 
 export async function getCharacterByName(n?:string) {
     try {
-        const character = await collection.findOne({name: n});
+        const character = JSON.parse(JSON.stringify(await collection.findOne({name: n})));
         return character;
     } catch (error) {
         console.error("Error fetching characters:", error);
