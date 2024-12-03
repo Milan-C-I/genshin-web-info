@@ -2,12 +2,15 @@ import { getCharacterByName, getCharactersByRegion } from "@/backend/mongodb";
 import CharDetails from "./charDetails";
 
 export default async function characterDetails({ searchParams }: { searchParams: { char: string } }) {
-  const char = await getCharacterByName(searchParams.char);
-  const region = await getCharactersByRegion(char?.region);
-  let index = region?.findIndex((c:any) => c.name === char?.name);
-    return (
-      <div>
-        <CharDetails region={region} ind={index}/>  
-      </div>
-    );
-  }
+  const searchParamsObject = await searchParams;
+
+  const char = searchParamsObject.char;
+  const character = await getCharacterByName(char);
+  const region = await getCharactersByRegion(character?.region);
+  const index = region?.findIndex((c: any) => c.name === char);
+  return (
+    <div>
+      <CharDetails region={region} ind={index} />
+    </div>
+  );
+}
