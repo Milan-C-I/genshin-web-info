@@ -50,7 +50,7 @@
     align-items: center;
     padding: 0 2rem;
 }
-.topNavBar > button{
+.topNavBar > button,.topNavBar > a{
     border:none;
     background:none;
     color:white;
