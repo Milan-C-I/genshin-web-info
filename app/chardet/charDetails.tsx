@@ -28,11 +28,10 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
       };
 
       useEffect(() => {
-        if (swiperRef.current && ind !== undefined) {
-            swiperRef.current.slideToLoop(ind, 0);
+        if (swiperRef.current && index !== undefined) {
+            swiperRef.current.slideToLoop(index, 0,true);
         }
         setCurrentChar(region[index]);
-        router.replace(`/chardet?char=${region[index]?.name}`);
     }, [index]);
       
     return (
@@ -59,15 +58,16 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
             modules={[Navigation]}
             direction="vertical"
             spaceBetween={0}
-            slidesPerView={5}
+            slidesPerView={4}
             navigation={{prevEl: '.scrollUp', nextEl: '.scrollDown'}}
             loop={true}
-            // initialSlide={ind}
             onSlideChange={handleSlideChange}
             className="charGrid"
         >
             {region?.map((c: any, index: number) => (
-                <SwiperSlide key={c._id} className={`navChar ${montserrat_font.className} ${index === activeSlideIndex ? 'active-slide' : ''}`}>
+                <SwiperSlide key={c._id} className={`navChar ${montserrat_font.className} ${index === activeSlideIndex ? 'active-slide' : ''}`}
+                style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0.5), rgba(255, 255, 255, 0)), url('/${c.region}_Slide_Image/${c.name.split(" ").join("_")}_Birthday_2024.webp')`}}
+                >
                     <h1>{c?.name}</h1>
                 </SwiperSlide>
             ))}
