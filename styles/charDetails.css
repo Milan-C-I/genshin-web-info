@@ -19,9 +19,9 @@
     margin-top: 5rem !important;
 }
 .navChar {  
-    background:black;
+    position: relative;
     background-Image: linear-gradient(90deg,rgb(0, 0, 0), rgba(255, 255, 255, 0)), url('/Archons/RaidenShogun_namecard.png');
-    background-size: cover;
+    background-size: 110%;
     background-position: center ,center -30px;
     background-repeat: no-repeat;
     transition: all 0.5s ease;
@@ -35,6 +35,8 @@
     text-transform: uppercase;
     color:white;
     font-size: 1vw;
+    position: absolute;
+    bottom: 5%;
 }
 .topNavBar{
     width: 100%;
@@ -184,10 +186,12 @@
     font-size: 15px;
     text-transform: uppercase;
     padding-right: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .characterAttributes {
-    width: 20vw;
+    width: fit-content;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
@@ -195,10 +199,11 @@
 }
 
 .characterLanguages {
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    width: 30vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap:10px;
+    column-gap: 5px;
     margin-block: 50px;
 }
 
