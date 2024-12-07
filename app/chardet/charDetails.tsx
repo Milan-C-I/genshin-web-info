@@ -66,7 +66,7 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
         >
             {region?.map((c: any, index: number) => (
                 <SwiperSlide key={c._id} className={`navChar ${montserrat_font.className} ${index === activeSlideIndex ? 'active-slide' : ''}`}
-                style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0.5), rgba(255, 255, 255, 0)), url('/${c.region}_Slide_Image/${c.name.split(" ").join("_")}_Birthday_2024.webp')`}}
+                style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0.75), rgba(255, 255, 255, 0)), url('/${c.region}_Slide_Image/${c.name.split(" ").join("_")}_Birthday_2024.webp')`}}
                 >
                     <h1>{c?.name}</h1>
                 </SwiperSlide>
