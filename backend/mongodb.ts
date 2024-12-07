@@ -8,6 +8,7 @@ let connected = false;
 await connect();
 const db = client.db("genshin-web-info");
 const collection = db.collection("characters");
+const allCharacterCollection = db.collection("char");
 async function connect(){
     try{
       if(!connected){
@@ -26,6 +27,14 @@ export async function getCharactersByRegion(r?:string) {
         console.error("Error fetching characters:", error);
     }
 }
+export async function getAllDetailsCharactersByRegion(r?:string) {
+  try {
+      const characters = JSON.parse(JSON.stringify(await allCharacterCollection.find({region: r}).sort({name:1}).toArray()));
+      return characters;
+  } catch (error) {
+      console.error("Error fetching characters:", error);
+  }
+}
 
 export async function getCharacterByName(n?:string) {
     try {
@@ -34,6 +43,14 @@ export async function getCharacterByName(n?:string) {
     } catch (error) {
         console.error("Error fetching characters:", error);
     }
+}
+export async function getAllDetailsCharacterByName(n?:string) {
+  try {
+      const character = JSON.parse(JSON.stringify(await allCharacterCollection.findOne({name: n})));
+      return character;
+  } catch (error) {
+      console.error("Error fetching characters:", error);
+  }
 }
 export async function getArchons() {
     try{
