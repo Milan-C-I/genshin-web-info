@@ -40,19 +40,18 @@ export default function FullCharInfo({ char }: { char?: any }) {
                 style={{
                     transition:isSliding ? "transform 0.5s ease, opacity 0s ease" : "transform 0.5s 0.3s ease, opacity 0.5s 0.3s ease",
                 }}
-                >Title</p>
-                <br/>
+                >Title <span style={{fontWeight:"bold",textShadow:"1px 1px 1px black"}}>: {currentChar?.title}</span></p>
                 <div className={`characterAttributes ${isSliding ? "sliding-out-Text" : "sliding-in-Text"}`}
                 style={{
                     transition:isSliding ? "transform 0.5s ease, opacity 0s ease" : "transform 0.5s 0.4s ease, opacity 0.5s 0.4s ease",
                 }}
                 >
-                    <span className="characterLabel">Affiliation</span>
-                    <span className="characterLabel">Element</span>
-                    <span className="characterLabel">POLEARM</span>
-                    <span className="characterLabel">Birthday</span>
-                    <span className="characterLabel">Domain</span>
-                    <span className="characterLabel">Gender</span>
+                    <span className="characterLabel">Affiliation <span style={{fontWeight:"bold"}}>: {currentChar?.affiliation}</span></span>
+                <span className="characterLabel">Element <span style={{fontWeight:"bold",position:"relative"}}>: {currentChar?.element}<img style={{width:"30%",position:"absolute",top:"50%",right:"-40%",transform:"translateY(-50%)"}} src={`/elements/Element_${currentChar?.element}.webp`}></img></span></span>
+                    <span className="characterLabel">Weapon <span style={{fontWeight:"bold"}}>: {currentChar?.weapon_type}</span></span>
+                    <span className="characterLabel">Birthday <span style={{fontWeight:"bold"}}>: {currentChar?.birthday[0]}/{currentChar?.birthday[1]}</span></span>
+                    <span className="characterLabel">Domain <span style={{fontWeight:"bold"}}>: {currentChar?.domain}</span></span>
+                    <span className="characterLabel">Gender <span style={{fontWeight:"bold"}}>: {currentChar?.gender}</span></span>
                 </div>
                 <div className={`characterLanguages ${isSliding ? "sliding-out-Text" : "sliding-in-Text"}`}
                 style={{
@@ -63,6 +62,10 @@ export default function FullCharInfo({ char }: { char?: any }) {
                     <span className="characterLabel">Chinese</span>
                     <span className="characterLabel">Japanese</span>
                     <span className="characterLabel">Korean</span>
+                    <span className="characterLabel">{currentChar?.cv?.english}</span>
+                    <span className="characterLabel">{currentChar?.cv?.chinese}</span>
+                    <span className="characterLabel">{currentChar?.cv?.japanese}</span>
+                    <span className="characterLabel">{currentChar?.cv?.korean}</span>
                 </div>
             </div>
             <div
