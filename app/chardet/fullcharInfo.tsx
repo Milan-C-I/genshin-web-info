@@ -67,6 +67,9 @@ export default function FullCharInfo({ char }: { char?: any }) {
                     <span className="characterLabel">{currentChar?.cv?.japanese}</span>
                     <span className="characterLabel">{currentChar?.cv?.korean}</span>
                 </div>
+                <div style={{color:"white"}}>
+                    video button
+                </div>
             </div>
             <div
                 className={`characterImage ${isSliding ? "sliding-out" : "sliding-in"}`}
