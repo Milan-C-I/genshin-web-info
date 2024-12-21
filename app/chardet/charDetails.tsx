@@ -20,6 +20,7 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
     const router = useRouter();
     const [currentChar, setCurrentChar] = useState(region[index]);
     const [activeSlideIndex, setActiveSlideIndex] = useState(index);
+    const [dataDisplay,setdataDisplay] = useState("INFO");
     const swiperRef = useRef<any>(null);
     const handleSlideChange = (swiper: any) => {
         setCurrentChar(region[swiper.realIndex]);
@@ -38,17 +39,18 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
         <div className="character-Details">
             <div className="topNavBar">
                 <a href="/" className={montserrat_font.className}>HOME</a>
-                <button className={montserrat_font.className}>SKILLS</button>
-                <button className={montserrat_font.className}>CONSTELLATION</button>
-                <button className={montserrat_font.className}>PASSIVE</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("INFO")} style={{background: dataDisplay === "INFO" ? "rgba(255, 255, 255, 0.25)" : "none"}}>INFO</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("SKILLS")} style={{background: dataDisplay === "SKILLS" ? "rgba(255, 255, 255, 0.25)" : "none"}}>SKILLS</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("CONSTELLATION")} style={{background: dataDisplay === "CONSTELLATION" ? "rgba(255, 255, 255, 0.25)" : "none"}}>CONSTELLATION</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("PASSIVE")} style={{background: dataDisplay === "PASSIVE" ? "rgba(255, 255, 255, 0.25)" : "none"}}>PASSIVE</button>
             </div>
             <div className="leftSideBar">
                 <div className="scrollSection">
-                    <button className="scrollUp">
+                    <button className="scrollUp" onClick={()=>setdataDisplay("INFO")}>
                         <i className="uil uil-angle-up" style={{fontSize:"30px"}}></i>
                     </button>
                     <span className={montserrat_font.className}>SCROLL</span>
-                    <button className="scrollDown">
+                    <button className="scrollDown" onClick={()=>setdataDisplay("INFO")}>
                         <i className="uil uil-angle-down" style={{fontSize:"30px"}}></i>
                     </button>
                 </div>
@@ -72,7 +74,7 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
                 </SwiperSlide>
             ))}
         </Swiper>
-            <FullCharInfo char={currentChar}/>
+            <FullCharInfo char={currentChar} display={dataDisplay}/>
             <div className="rightSideBar">
                 <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Albedo")}>MONDSTADT</button>
                 <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Baizhu")}>LIYUE</button>
