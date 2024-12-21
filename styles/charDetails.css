@@ -151,10 +151,20 @@
 
 .characterDetailsContent {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 5%;
 }
-
+.characterDetailsContent div::-webkit-scrollbar{
+    width: 1px;
+}
+.characterDetailsContent div::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 20px;
+} 
+.characterDetailsContent div::-webkit-scrollbar-thumb {
+    background: #ffffff50;
+    border-radius: 10px;
+} 
 .characterTitle {
     font-size: 80px;
     font-weight: bold;
