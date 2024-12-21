@@ -25,7 +25,15 @@ export default function FullCharInfo({
         setIsSliding(false);
       }, 300);
     }
-  }, [char]);
+  }, [char,display]);
+
+  useEffect(() => {
+    setIsSliding(true);
+    setTimeout(() => {
+      setCurrentChar(char);
+      setIsSliding(false);
+    }, 300);
+  },[display]);
 
   return (
     <div className="characterDetailsContainer">
@@ -91,21 +99,19 @@ export default function FullCharInfo({
                 : {currentChar?.affiliation}
               </span>
             </span>
-            <span className="characterLabel">
+            <span className="characterLabel" style={{ position: "relative" }}>
               Element{" "}
-              <span style={{ fontWeight: "bold", position: "relative" }}>
+              <span style={{ fontWeight: "bold"}}>
                 : {currentChar?.element}
-                <img
+              </span>
+              <img
                   style={{
-                    width: "30%",
-                    position: "absolute",
-                    top: "50%",
-                    right: "-40%",
-                    transform: "translateY(-50%)",
+                    width: "10%",
+                    display: "inline-block",
+                    transform: "translate(0, -20%)",
                   }}
                   src={`/elements/Element_${currentChar?.element}.webp`}
                 ></img>
-              </span>
             </span>
             <span className="characterLabel">
               Weapon{" "}
@@ -155,18 +161,66 @@ export default function FullCharInfo({
         </div>
       )}
       {display === "SKILLS" && (
-        <div>
-          <h1>SKILLS</h1>
+        <div className={`${montserrat_font.className} characterDetailsContent`}>
+        <h1
+          className={`characterTitle ${
+            isSliding ? "sliding-out-Text" : "sliding-in-Text"
+          }`}
+          style={{
+            transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+          }}
+        >
+          {currentChar?.name.split(" ").map((word: any, index: number) => (
+            <span key={index}>
+              {word}
+              <br />
+            </span>
+          ))}
+        </h1>
+        <div style={{color:"white",width: "35vw",height:"460px",paddingRight:"20px",overflowY:"scroll"}}>
+            {char?.skills.map((skill:any) => <div key={skill._id}>
+                <h1 style={{marginBlock:"20px",width:"25vw"}}>{skill?.name}</h1>
+                <p dangerouslySetInnerHTML={{ __html: skill?.description }} />
+            </div>)}
+        </div>
         </div>
       )}
       {display === "CONSTELLATION" && (
-        <div>
-          <h1>CONSTELLATION</h1>
+        <div className={`${montserrat_font.className} characterDetailsContent`}>
+        <h1
+          className={`characterTitle ${
+            isSliding ? "sliding-out-Text" : "sliding-in-Text"
+          }`}
+          style={{
+            transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+          }}
+        >
+          {currentChar?.name.split(" ").map((word: any, index: number) => (
+            <span key={index}>
+              {word}
+              <br />
+            </span>
+          ))}
+        </h1>
         </div>
       )}
       {display === "PASSIVE" && (
-        <div>
-          <h1>PASSIVE</h1>
+        <div className={`${montserrat_font.className} characterDetailsContent`}>
+        <h1
+          className={`characterTitle ${
+            isSliding ? "sliding-out-Text" : "sliding-in-Text"
+          }`}
+          style={{
+            transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+          }}
+        >
+          {currentChar?.name.split(" ").map((word: any, index: number) => (
+            <span key={index}>
+              {word}
+              <br />
+            </span>
+          ))}
+        </h1>
         </div>
       )}
       <div
