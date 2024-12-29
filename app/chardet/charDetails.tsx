@@ -46,11 +46,11 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
             </div>
             <div className="leftSideBar">
                 <div className="scrollSection">
-                    <button className="scrollUp" onClick={()=>setdataDisplay("INFO")}>
+                    <button className="scrollUp">
                         <i className="uil uil-angle-up" style={{fontSize:"30px"}}></i>
                     </button>
                     <span className={montserrat_font.className}>SCROLL</span>
-                    <button className="scrollDown" onClick={()=>setdataDisplay("INFO")}>
+                    <button className="scrollDown">
                         <i className="uil uil-angle-down" style={{fontSize:"30px"}}></i>
                     </button>
                 </div>
