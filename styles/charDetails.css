@@ -7,7 +7,7 @@
     margin: auto;
     background-image: url('/img/raidenbg.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
 }
 .charGrid{
     width: 25vw;
@@ -221,7 +221,7 @@
 }
 
 .characterImage {
-    width: 65rem;
+    width: 60rem;
     aspect-ratio: 1 / 1;
     position: absolute;
     bottom: 0;
