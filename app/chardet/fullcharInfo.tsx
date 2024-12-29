@@ -1,6 +1,10 @@
 "use client";
 import { Montserrat } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Navigation} from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const montserrat_font = Montserrat({
   weight: "400",
@@ -16,6 +20,7 @@ export default function FullCharInfo({
 }) {
   const [currentChar, setCurrentChar] = useState(char);
   const [isSliding, setIsSliding] = useState(false);
+  const skillRef = useRef<any>(null);
 
   useEffect(() => {
     if (char?.name !== currentChar?.name) {
@@ -24,6 +29,9 @@ export default function FullCharInfo({
         setCurrentChar(char);
         setIsSliding(false);
       }, 300);
+    }
+    if(skillRef.current?.slideTo){
+      skillRef?.current?.swiper.slideTo(0);
     }
   }, [char,display]);
 
@@ -38,7 +46,7 @@ export default function FullCharInfo({
   return (
     <div className="characterDetailsContainer">
       {display === "INFO" && (
-        <div className={`${montserrat_font.className} characterDetailsContent`}>
+        <div className={`${montserrat_font.className} characterDetailsContent`} >
           <h1
             className={`characterTitle ${
               isSliding ? "sliding-out-Text" : "sliding-in-Text"
@@ -177,12 +185,39 @@ export default function FullCharInfo({
             </span>
           ))}
         </h1>
-        <div style={{color:"white",width: "35vw",height:"460px",paddingRight:"20px",overflowY:"scroll"}}>
-            {char?.skills.map((skill:any) => <div key={skill._id}>
-                <h1 style={{marginBlock:"20px",width:"25vw"}}>{skill?.name}</h1>
+        <Swiper
+        ref={skillRef}
+        modules={[Navigation]}
+        navigation={{
+          nextEl: ".skill-next",
+          prevEl: ".skill-prev",
+        }}
+        spaceBetween={50}
+        style={{color:"white",width: "35vw",maxHeight:"400px",paddingRight:"20px",overflowY:"scroll"}}>
+            {char?.skills.map((skill:any) =>
+                <SwiperSlide key={skill._id}>
+                <h1  style={{marginBlock:"20px",width:"25vw"}}>{skill?.name}</h1>
                 <p dangerouslySetInnerHTML={{ __html: skill?.description }} />
-            </div>)}
-        </div>
+                </SwiperSlide>)}
+        </Swiper>
+        <div style={{display:"flex",justifyContent:"space-between",marginTop:"30px"}}>
+          <button className="skill-prev"
+           style={{color:"white",
+            background:"transparent",
+            border:"1px solid white",
+           }}
+          >
+          <i className="uil uil-angle-left" style={{fontSize:"30px"}}></i>
+          </button>
+          <button className="skill-next"
+          style={{color:"white",
+            background:"transparent",
+            border:"1px solid white",
+           }}
+          >
+          <i className="uil uil-angle-right" style={{fontSize:"30px"}}></i>
+          </button>
+          </div>
         </div>
       )}
       {display === "CONSTELLATION" && (
