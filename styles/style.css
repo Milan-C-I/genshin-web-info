@@ -177,9 +177,6 @@
   }
 }
 @media (max-width: 1285px) {
-    .hero{
-        height: 50vh;
-    }
   .header > h1 {
     font-size: 1.5rem;
   }
@@ -224,9 +221,6 @@
   }
 }
 @media (max-width: 720px) {
-    .hero{
-        height: 40vh;
-    }
     .header{
         gap:30px;
     }
@@ -258,9 +252,7 @@
         margin: auto;
         padding-left:10%;
       }
-    .hero{
-        height: 35vh;
-    }
+
     .nav{
         display:none;
     }
@@ -274,10 +266,11 @@
 }
 @media (max-width: 500px) {
     .hero{
-        height: 30vh;
+        height: 50vh;
+        border-radius: 0;
     }
     .heroText{
-      bottom: 0;
+      bottom: 10%;
     }
     .heroText > h1 {
       font-size: 12px;
