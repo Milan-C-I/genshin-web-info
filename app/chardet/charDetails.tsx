@@ -36,7 +36,7 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
     }, [index]);
       
     return (
-        <div className="character-Details">
+        <div className="character-Details" >
             <div className="topNavBar">
                 <a href="/" className={montserrat_font.className}>HOME</a>
                 <button className={montserrat_font.className} onClick={()=>setdataDisplay("INFO")} style={{background: dataDisplay === "INFO" ? "rgba(255, 255, 255, 0.25)" : "none"}}>INFO</button>
