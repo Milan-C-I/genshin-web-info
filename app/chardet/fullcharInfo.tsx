@@ -1,10 +1,11 @@
 "use client";
 import { Montserrat } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
-import { Navigation} from "swiper/modules";
+import { Navigation, Pagination} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const montserrat_font = Montserrat({
   weight: "400",
@@ -20,7 +21,9 @@ export default function FullCharInfo({
 }) {
   const [currentChar, setCurrentChar] = useState(char);
   const [isSliding, setIsSliding] = useState(false);
+  const [opa, setOpa] = useState(false);
   const skillRef = useRef<any>(null);
+  const constellationRef = useRef<any>(null);
 
   useEffect(() => {
     if (char?.name !== currentChar?.name) {
@@ -30,11 +33,18 @@ export default function FullCharInfo({
         setIsSliding(false);
       }, 300);
     }
-    if(skillRef.current?.slideTo){
+    if(skillRef.current?.swiper){
       skillRef?.current?.swiper.slideTo(0);
     }
+    if(constellationRef.current?.swiper){
+      constellationRef?.current?.swiper.slideTo(0);
+    }
+    setOpa(false);
+    setTimeout(() => {
+      setOpa(true);
+    },500);
   }, [char,display]);
-
+  
   useEffect(() => {
     setIsSliding(true);
     setTimeout(() => {
@@ -187,15 +197,19 @@ export default function FullCharInfo({
         </h1>
         <Swiper
         ref={skillRef}
-        modules={[Navigation]}
+        modules={[Navigation,Pagination]}
+        pagination={{ clickable: true, dynamicBullets: true }}
         navigation={{
           nextEl: ".skill-next",
           prevEl: ".skill-prev",
         }}
         spaceBetween={50}
-        style={{color:"white",width: "35vw",maxHeight:"400px",paddingRight:"20px",overflowY:"scroll"}}>
+        direction="vertical"
+        style={{color:"white",width: "35vw",maxHeight:"400px",paddingRight:"20px"}}>
             {char?.skills.map((skill:any) =>
-                <SwiperSlide key={skill._id}>
+                <SwiperSlide key={skill._id} style={{overflowY:"scroll",
+                  opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+                }}>
                 <h1  style={{marginBlock:"20px",width:"25vw"}}>{skill?.name}</h1>
                 <p dangerouslySetInnerHTML={{ __html: skill?.description }} />
                 </SwiperSlide>)}
@@ -205,6 +219,7 @@ export default function FullCharInfo({
            style={{color:"white",
             background:"transparent",
             border:"1px solid white",
+            opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
            }}
           >
           <i className="uil uil-angle-left" style={{fontSize:"30px"}}></i>
@@ -213,6 +228,7 @@ export default function FullCharInfo({
           style={{color:"white",
             background:"transparent",
             border:"1px solid white",
+            opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
            }}
           >
           <i className="uil uil-angle-right" style={{fontSize:"30px"}}></i>
@@ -237,6 +253,48 @@ export default function FullCharInfo({
             </span>
           ))}
         </h1>
+        <Swiper ref={constellationRef}
+        modules={[Pagination,Navigation]}
+        navigation={{
+          nextEl: ".constellation-next",
+          prevEl: ".constellation-prev",
+        }}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        spaceBetween={50}
+        direction="vertical"
+        style={{color:"white",width: "35vw",height:"250px",paddingRight:"20px"}}>
+          {char?.constellations.map((constellation:any,index:number) =>
+            <SwiperSlide key={constellation._id} style={{overflowY:"scroll",
+              opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+            }}
+            >
+            <h1  style={{marginBlock:"20px",width:"25vw"}}>C{index+1} {constellation?.name}</h1>
+            <p dangerouslySetInnerHTML={{ __html: constellation?.description }} />
+            </SwiperSlide>)}  
+        </Swiper>
+        <div style={{display:"flex",justifyContent:"space-between",marginTop:"30px"}}>
+          <button className="constellation-prev"
+           style={{color:"white",
+            background:"transparent",
+            border:"1px solid white",
+            opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+           }}
+          >
+          <i className="uil uil-angle-left" style={{fontSize:"30px"}}></i>
+          </button>
+          <button className="constellation-next"
+          style={{color:"white",
+            background:"transparent",
+            border:"1px solid white",
+            opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+           }}
+          >
+          <i className="uil uil-angle-right" style={{fontSize:"30px"}}></i>
+          </button>
+          </div>
         </div>
       )}
       {display === "PASSIVE" && (
