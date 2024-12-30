@@ -94,6 +94,7 @@
     background: none;
     transition: all 0.5s ease;
 }
+
 .rightSideBar > button:hover{
     cursor: pointer;
     background-color:rgba(105, 0, 109, 0.5);
@@ -185,7 +186,7 @@
 }
 .sliding-out-Text{
     opacity: 0;
-    transition: transform 0.5s ease, opacity 0s ease;
+    transition: transform 0.5s ease, opacity 0.2s ease;
     transform: translateY(100px);
 }
 .sliding-in-Text{
@@ -221,10 +222,10 @@
 }
 
 .characterImage {
-    width: 60rem;
+    width: 65rem;
     aspect-ratio: 1 / 1;
     position: absolute;
-    bottom: 0;
+    bottom: 50%;
     right: 0;
     z-index: -1;
     mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
@@ -236,12 +237,12 @@
 .characterImage.sliding-in {
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 1;
-    transform: translateY(10%) translateX(10%);
+    transform: translateY(50%) translateX(10%);
 }
 
 .characterImage.sliding-out {
     transition: transform 0.5s ease, opacity 0.2s ease;
     opacity: 0;
-    transform: translateY(10%) translateX(40%);
+    transform: translateY(50%) translateX(40%);
 }
 
