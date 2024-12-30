@@ -74,14 +74,17 @@ export default function CharCard({char,btncolor}:{char?:any,btncolor?:string}) {
                 {char?.description}
             </p>
             </div>
-            <button style={{float:'right',
-                backgroundColor: isHovered ? btncolor : 'black',
-                transition: 'background-color 0.5s ease',
-            }}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onClick={()=>router.push(`/chardet?char=${char?.name}`)}
-            ><i className="uil uil-arrow-right"></i></button>
+            {char?.region !== "Snezhnaya" &&
+                <button style={{float:'right',
+                    backgroundColor: isHovered ? btncolor : 'black',
+                    transition: 'background-color 0.5s ease',
+                }}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    onClick={()=>router.push(`/chardet?char=${char?.name}`)}
+                ><i className="uil uil-arrow-right"></i></button>
+            }
+            
         </div>
     )
 }
