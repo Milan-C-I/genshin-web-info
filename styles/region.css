@@ -242,10 +242,14 @@
       }
       .charImage {
         width: 100px;
-        height: 150px;
+        height: 200px;
       }
       .charName {
         font-size: 10px;
+      }
+      .uil-arrow-right::before{
+        font-size: 12px;
+        padding: 2px;
       }
       .charDesc {
         font-size: 8px;
