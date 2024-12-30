@@ -1,9 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
+// import 'swiper/css/pagination';
 import "@/styles/style.css";
 
 const photos = [
@@ -36,13 +36,9 @@ const Carousel = () => {
       transition: 'background-image 0.5s ease-in-out',
     }}>
       <Swiper
-        modules={[Pagination,Autoplay]}
+        modules={[Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
-        pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
         autoplay={{ delay: 1000, disableOnInteraction: false }}
         loop={true}
         speed={2000}
