@@ -38,11 +38,11 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
     return (
         <div className="character-Details" >
             <div className="topNavBar">
-                <a href="/" className={montserrat_font.className}>HOME</a>
-                <button className={montserrat_font.className} onClick={()=>setdataDisplay("INFO")} style={{background: dataDisplay === "INFO" ? "rgba(255, 255, 255, 0.25)" : "none"}}>INFO</button>
-                <button className={montserrat_font.className} onClick={()=>setdataDisplay("SKILLS")} style={{background: dataDisplay === "SKILLS" ? "rgba(255, 255, 255, 0.25)" : "none"}}>SKILLS</button>
-                <button className={montserrat_font.className} onClick={()=>setdataDisplay("CONSTELLATION")} style={{background: dataDisplay === "CONSTELLATION" ? "rgba(255, 255, 255, 0.25)" : "none"}}>CONSTELLATION</button>
-                <button className={montserrat_font.className} onClick={()=>setdataDisplay("PASSIVE")} style={{background: dataDisplay === "PASSIVE" ? "rgba(255, 255, 255, 0.25)" : "none"}}>PASSIVE</button>
+                <a href="/" className={montserrat_font.className} style={{padding:"15px",border:"1px solid rgba(105, 0, 109, 1"}}>HOME</a>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("INFO")} style={{background: dataDisplay === "INFO" ? "rgba(105, 0, 109, 0.5)" : "none"}}>INFO</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("SKILLS")} style={{background: dataDisplay === "SKILLS" ? "rgba(105, 0, 109, 0.5)" : "none"}}>SKILLS</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("CONSTELLATION")} style={{background: dataDisplay === "CONSTELLATION" ? "rgba(105, 0, 109, 0.5)" : "none"}}>CONSTELLATION</button>
+                <button className={montserrat_font.className} onClick={()=>setdataDisplay("PASSIVE")} style={{background: dataDisplay === "PASSIVE" ? "rgba(105, 0, 109, 0.5)" : "none"}}>PASSIVE</button>
             </div>
             <div className="leftSideBar">
                 <div className="scrollSection">
@@ -59,6 +59,7 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             modules={[Navigation]}
             direction="vertical"
+            grabCursor={true}
             spaceBetween={0}
             slidesPerView={4}
             navigation={{prevEl: '.scrollUp', nextEl: '.scrollDown'}}
@@ -82,6 +83,7 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
                 <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Alhaitham")}>SUMERU</button>
                 <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Charlotte")}>FONTAINE</button>
                 <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Chasca")}>NATLAN</button>
+                {/* <button className={montserrat_font.className} onClick={() => router.replace("/chardet?char=Arlecchino")}>SNEZHNAYA</button> */}
             </div>
         </div>
     );
