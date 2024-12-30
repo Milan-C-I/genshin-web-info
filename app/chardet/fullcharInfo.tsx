@@ -21,48 +21,79 @@ export default function FullCharInfo({
 }) {
   const [currentChar, setCurrentChar] = useState(char);
   const [isSliding, setIsSliding] = useState(false);
+  const [isNameSliding, setIsNameSliding] = useState(false);
   const [opa, setOpa] = useState(false);
   const skillRef = useRef<any>(null);
   const constellationRef = useRef<any>(null);
+  const passiveRef = useRef<any>(null);
 
   useEffect(() => {
-    if (char?.name !== currentChar?.name) {
-      setIsSliding(true);
-      setTimeout(() => {
-        setCurrentChar(char);
-        setIsSliding(false);
-      }, 300);
-    }
     if(skillRef.current?.swiper){
       skillRef?.current?.swiper.slideTo(0);
     }
     if(constellationRef.current?.swiper){
       constellationRef?.current?.swiper.slideTo(0);
     }
-    setOpa(false);
-    setTimeout(() => {
-      setOpa(true);
-    },500);
+    if(passiveRef.current?.swiper){
+      passiveRef?.current?.swiper.slideTo(0);
+    }
   }, [char,display]);
   
   useEffect(() => {
-    setIsSliding(true);
-    setTimeout(() => {
-      setCurrentChar(char);
-      setIsSliding(false);
-    }, 300);
+    if (char?.name !== currentChar?.name) {
+      setOpa(false);
+      setIsNameSliding(true);
+      setTimeout(() => {
+        setCurrentChar(char);
+        setIsNameSliding(false);
+        setOpa(true);
+      }, 300);
+    }
+    if (char?.name !== currentChar?.name && display === "INFO") {
+      setIsSliding(true);
+      setTimeout(() => {
+        setIsSliding(false);
+      }, 200);
+    }
+  }, [char]);
+
+  useEffect(() => {
+    if(display === "INFO"){
+      setIsSliding(true);
+      setTimeout(() => {
+        setCurrentChar(char);
+        setIsSliding(false);
+      }, 200);
+    }
+    if(display !== "INFO"){
+      setIsSliding(true);
+      setOpa(false);
+      setTimeout(() => {
+        setOpa(true);
+      },300);
+    }
   },[display]);
 
   return (
+    <>
+    <div style={{backgroundImage: `url(/elements/Element_${currentChar?.element}.webp)`,
+      position: "absolute",
+      width:"4rem",height:"5rem",padding:"10px",
+      backgroundSize:"3rem",
+      backgroundPosition:"center",
+      backgroundRepeat:"no-repeat",right:"0",
+      zIndex: "20",
+      opacity: isNameSliding ? 0 : 1,transition: "opacity 0.5s ease",
+    }}></div>
     <div className="characterDetailsContainer">
       {display === "INFO" && (
         <div className={`${montserrat_font.className} characterDetailsContent`} >
           <h1
             className={`characterTitle ${
-              isSliding ? "sliding-out-Text" : "sliding-in-Text"
+              isNameSliding ? "sliding-out-Text" : "sliding-in-Text"
             }`}
             style={{
-              transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+              transform: isNameSliding ? "translateX(-100px)" : "translateX(0)",
             }}
           >
             {currentChar?.name.split(" ").map((word: any, index: number) => (
@@ -78,7 +109,7 @@ export default function FullCharInfo({
             }`}
             style={{
               transition: isSliding
-                ? "transform 0.5s ease, opacity 0s ease"
+                ? "transform 0s ease, opacity 0s ease"
                 : "transform 0.5s 0.2s ease, opacity 0.5s 0.2s ease",
             }}
           >
@@ -90,7 +121,7 @@ export default function FullCharInfo({
             }`}
             style={{
               transition: isSliding
-                ? "transform 0.5s ease, opacity 0s ease"
+                ? "transform 0s ease, opacity 0s ease"
                 : "transform 0.5s 0.3s ease, opacity 0.5s 0.3s ease",
             }}
           >
@@ -107,7 +138,7 @@ export default function FullCharInfo({
             }`}
             style={{
               transition: isSliding
-                ? "transform 0.5s ease, opacity 0s ease"
+                ? "transform 0s ease, opacity 0s ease"
                 : "transform 0.5s 0.4s ease, opacity 0.5s 0.4s ease",
             }}
           >
@@ -175,17 +206,17 @@ export default function FullCharInfo({
             <span className="characterLabel">{currentChar?.cv?.japanese}</span>
             <span className="characterLabel">{currentChar?.cv?.korean}</span>
           </div>
-          <div style={{ color: "white" }}>video button</div>
+          {/* <div style={{ color: "white" }}>video button</div> */}
         </div>
       )}
       {display === "SKILLS" && (
         <div className={`${montserrat_font.className} characterDetailsContent`}>
         <h1
           className={`characterTitle ${
-            isSliding ? "sliding-out-Text" : "sliding-in-Text"
+            isNameSliding ? "sliding-out-Text" : "sliding-in-Text"
           }`}
           style={{
-            transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+            transform: isNameSliding ? "translateX(-100px)" : "translateX(0)",
           }}
         >
           {currentChar?.name.split(" ").map((word: any, index: number) => (
@@ -207,7 +238,7 @@ export default function FullCharInfo({
         direction="vertical"
         style={{color:"white",width: "35vw",maxHeight:"400px",paddingRight:"20px"}}>
             {char?.skills.map((skill:any) =>
-                <SwiperSlide key={skill._id} style={{overflowY:"scroll",
+                <SwiperSlide key={skill._id} style={{overflowY:"scroll",paddingRight:"5px",
                   opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
                 }}>
                 <h1  style={{marginBlock:"20px",width:"25vw"}}>{skill?.name}</h1>
@@ -240,10 +271,10 @@ export default function FullCharInfo({
         <div className={`${montserrat_font.className} characterDetailsContent`}>
         <h1
           className={`characterTitle ${
-            isSliding ? "sliding-out-Text" : "sliding-in-Text"
+            isNameSliding ? "sliding-out-Text" : "sliding-in-Text"
           }`}
           style={{
-            transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+            transform: isNameSliding ? "translateX(-100px)" : "translateX(0)",
           }}
         >
           {currentChar?.name.split(" ").map((word: any, index: number) => (
@@ -267,7 +298,7 @@ export default function FullCharInfo({
         direction="vertical"
         style={{color:"white",width: "35vw",height:"250px",paddingRight:"20px"}}>
           {char?.constellations.map((constellation:any,index:number) =>
-            <SwiperSlide key={constellation._id} style={{overflowY:"scroll",
+            <SwiperSlide key={constellation._id} style={{overflowY:"scroll",paddingRight:"5px",
               opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
             }}
             >
@@ -301,10 +332,10 @@ export default function FullCharInfo({
         <div className={`${montserrat_font.className} characterDetailsContent`}>
         <h1
           className={`characterTitle ${
-            isSliding ? "sliding-out-Text" : "sliding-in-Text"
+            isNameSliding ? "sliding-out-Text" : "sliding-in-Text"
           }`}
           style={{
-            transform: isSliding ? "translateX(-100px)" : "translateX(0)",
+            transform: isNameSliding ? "translateX(-100px)" : "translateX(0)",
           }}
         >
           {currentChar?.name.split(" ").map((word: any, index: number) => (
@@ -314,10 +345,52 @@ export default function FullCharInfo({
             </span>
           ))}
         </h1>
+        <Swiper ref={passiveRef}
+        modules={[Pagination,Navigation]}
+        navigation={{
+          nextEl: ".passive-next",
+          prevEl: ".passive-prev",
+        }}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        spaceBetween={50}
+        direction="vertical"
+        style={{color:"white",width: "35vw",height:"250px",paddingRight:"20px"}}>
+          {char?.passives.map((passive:any,index:number) =>
+            <SwiperSlide key={index} style={{overflowY:"scroll",paddingRight:"5px",
+              opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+            }}
+            >
+            <h1  style={{marginBlock:"20px",width:"25vw"}}>{passive?.name}</h1>
+            <p dangerouslySetInnerHTML={{ __html: passive?.description }} />
+            </SwiperSlide>)}  
+        </Swiper>
+        <div style={{display:"flex",justifyContent:"space-between",marginTop:"30px"}}>
+          <button className="passive-prev"
+           style={{color:"white",
+            background:"transparent",
+            border:"1px solid white",
+            opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+           }}
+          >
+          <i className="uil uil-angle-left" style={{fontSize:"30px"}}></i>
+          </button>
+          <button className="passive-next"
+          style={{color:"white",
+            background:"transparent",
+            border:"1px solid white",
+            opacity: opa?"1":"0",transition: opa?"opacity 0.5s ease":"opacity 0s ease",
+           }}
+          >
+          <i className="uil uil-angle-right" style={{fontSize:"30px"}}></i>
+          </button>
+          </div>
         </div>
       )}
       <div
-        className={`characterImage ${isSliding ? "sliding-out" : "sliding-in"}`}
+        className={`characterImage ${isNameSliding ? "sliding-out" : "sliding-in"}`}
         style={{
           backgroundImage: `url('/${
             currentChar?.region
@@ -330,5 +403,6 @@ export default function FullCharInfo({
         }}
       ></div>
     </div>
+    </>
   );
 }
