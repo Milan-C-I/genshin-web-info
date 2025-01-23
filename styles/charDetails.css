@@ -167,7 +167,7 @@
     border-radius: 10px;
 } 
 .characterTitle {
-    font-size: 80px;
+    font-size: 4vw;
     font-weight: bold;
     color: white;
     width: fit-content;
@@ -213,7 +213,7 @@
 }
 
 .characterLanguages {
-    width: 30vw;
+    width: fit-content;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap:10px;
@@ -225,7 +225,8 @@
     width: 65rem;
     aspect-ratio: 1 / 1;
     position: absolute;
-    bottom: 50%;
+    /* bottom: 50%; */
+    top:0;
     right: 0;
     z-index: -1;
     mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
@@ -237,12 +238,17 @@
 .characterImage.sliding-in {
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 1;
-    transform: translateY(50%) translateX(10%);
+    transform: translateY(-10%) translateX(10%);
 }
 
 .characterImage.sliding-out {
     transition: transform 0.5s ease, opacity 0.2s ease;
     opacity: 0;
-    transform: translateY(50%) translateX(40%);
+    transform: translateY(-10%) translateX(40%);
 }
-
+@media(max-width: 1200px){
+    .characterDescription{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
