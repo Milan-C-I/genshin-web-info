@@ -36,7 +36,13 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
     }, [index]);
       
     return (
-        <div className="character-Details" >
+        <div className="character-Details"
+         style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0.75),rgb(0, 0, 0,0.5), rgb(0, 0, 0,0.75)), url('/${currentChar.region}_Slide_Image/${currentChar.name.split(" ").join("_")}_Birthday_2024.webp')`,
+        //   style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0), rgb(0, 0, 0,0.25)), url('/Archons/Nahida_namecard.png')`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",}}
+          >
             <div className="topNavBar">
                 <a href="/" className={montserrat_font.className} style={{padding:"15px",border:"1px solid rgba(105, 0, 109, 1"}}>HOME</a>
                 <button className={montserrat_font.className} onClick={()=>setdataDisplay("INFO")} style={{background: dataDisplay === "INFO" ? "rgba(105, 0, 109, 0.5)" : "none"}}>INFO</button>
@@ -62,6 +68,14 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
             grabCursor={true}
             spaceBetween={0}
             slidesPerView={4}
+            breakpoints={{
+                1300: {
+                    slidesPerView: 4,
+                },
+                720: {
+                    slidesPerView: 5,
+                }
+            }}
             navigation={{prevEl: '.scrollUp', nextEl: '.scrollDown'}}
             loop={true}
             onSlideChange={handleSlideChange}
