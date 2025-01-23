@@ -392,6 +392,8 @@ export default function FullCharInfo({
       <div
         className={`characterImage ${isNameSliding ? "sliding-out" : "sliding-in"}`}
         style={{
+          width:"53vw",
+          aspectRatio: "1/1",
           backgroundImage: `url('/${
             currentChar?.region
           }/Character_${currentChar?.name
