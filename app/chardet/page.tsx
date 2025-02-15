@@ -2,12 +2,12 @@ import { getAllDetailsCharacterByName, getAllDetailsCharactersByRegion } from "@
 import CharDetails from "./charDetails";
 
 export default async function characterDetails({ searchParams }: { searchParams: { char: string } }) {
-  const searchParamsObject = await searchParams;
+  const char = searchParams.char; 
 
-  const char = searchParamsObject.char;
   const character = await getAllDetailsCharacterByName(char);
   const region = await getAllDetailsCharactersByRegion(character?.region);
   const index = region?.findIndex((c: any) => c.name === char);
+
   return (
     <div>
       <CharDetails region={region} ind={index} />
