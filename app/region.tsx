@@ -1,13 +1,13 @@
 import '@/styles/region.css';  
-import { Sour_Gummy } from 'next/font/google'; 
+import { SourGummy } from 'next/font/google'; 
 import CharCard from './charCard';
 import { getCharactersByRegion } from '@/backend/mongodb';
 import Image from 'next/image';
-const fontName = Sour_Gummy({
+const fontName = SourGummy({
     weight: '400',
     subsets: ['latin'],   
 })
-const headerFont = Sour_Gummy({
+const headerFont = SourGummy({
     weight: '400',
     subsets: ['latin'],
 })
