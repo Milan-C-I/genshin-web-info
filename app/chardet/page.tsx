@@ -1,8 +1,12 @@
 import { getAllDetailsCharacterByName, getAllDetailsCharactersByRegion } from "@/backend/mongodb";
 import CharDetails from "./charDetails";
 
-export default async function characterDetails({ searchParams }: { searchParams: { char: string } }) {
-  const char = searchParams.char; 
+
+export default async function characterDetails( { searchParams } : any ) {
+  const searchParamsObject = await searchParams;
+  // console.log(searchParams);
+
+  const char = searchParamsObject.char;
 
   const character = await getAllDetailsCharacterByName(char);
   const region = await getAllDetailsCharactersByRegion(character?.region);
