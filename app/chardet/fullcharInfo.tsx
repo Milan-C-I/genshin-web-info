@@ -32,16 +32,6 @@ export default function FullCharInfo({
   const passiveRef = useRef<any>(null);
 
 
-const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsImageLoaded(false); // Reset state when character changes
-  }, [currentChar]);
-  
-  const imageUrl = `/${currentChar?.region}/Character_${currentChar?.name
-    ?.split(" ")
-    .join("_")}_Full_Wish.webp`;
-
   useEffect(() => {
     if(skillRef.current?.swiper){
       skillRef?.current?.swiper.slideTo(0);
@@ -414,20 +404,14 @@ const [isImageLoaded, setIsImageLoaded] = useState(false);
           </div>
         </div>
       )}
-      <img
-      src={imageUrl}
-      onLoad={() => setIsImageLoaded(true)}
-      style={{ display: "none" }}
-      alt="Character"
-    />
-
-    {/* Div with class applied only after the image loads */}
     <div
-      className={`characterImage ${(isNameSliding || isImageLoaded ? "sliding-out" : "sliding-in")}`}
+      className={`characterImage ${(isNameSliding ? "sliding-out" : "sliding-in")}`}
       style={{
         width: "53vw",
         aspectRatio: "1/1",
-        backgroundImage: `url('${imageUrl}')`,
+        backgroundImage: `url('${`/${currentChar?.region}/Character_${currentChar?.name
+    ?.split(" ")
+    .join("_")}_Full_Wish.webp`}')`,
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

@@ -39,8 +39,8 @@ export default function CharDetails({ region , ind }: { region: any , ind: numbe
         <div className="character-Details"
          style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0.75),rgb(0, 0, 0,0.5), rgb(0, 0, 0,0.75)), url('/${currentChar.region}_Slide_Image/${currentChar.name.split(" ").join("_")}_Birthday_2024.webp')`,
         //   style={{backgroundImage: `linear-gradient(90deg,rgb(0, 0, 0,0), rgb(0, 0, 0,0.25)), url('/Archons/Nahida_namecard.png')`,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundPosition: "top center",
           backgroundRepeat: "no-repeat",}}
           >
             <div className="topNavBar">
