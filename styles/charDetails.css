@@ -135,7 +135,7 @@
         aspect-ratio: 2/1;
     }
     .navChar > h1 {
-        font-size: 4vw;  /* Increase text size on smaller screens */
+        font-size: 1vw;  /* Increase text size on smaller screens */
     }
 }
 
@@ -179,7 +179,7 @@
 }
 .characterDescription {
     color: white;
-    font-size: 15px;
+    font-size: 1rem;
     max-width: 40%;
     line-height: 1.5;
     margin-bottom: 20px;
@@ -197,7 +197,7 @@
 
 .characterLabel {
     color: white;
-    font-size: 15px;
+    font-size: 0.85vw;
     text-transform: uppercase;
     padding-right: 10px;
     display: flex;

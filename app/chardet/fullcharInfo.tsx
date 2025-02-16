@@ -1,5 +1,5 @@
 "use client";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Poiret_One } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import { Navigation, Pagination} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,10 @@ const montserrat_font = Montserrat({
   weight: "400",
   subsets: ["latin"],
 });
+const heroFont = Poiret_One({
+    weight:'400',
+    subsets:['latin'],
+})
 
 export default function FullCharInfo({
   char,
@@ -84,6 +88,16 @@ export default function FullCharInfo({
       backgroundRepeat:"no-repeat",right:"0",
       zIndex: "20",
       opacity: isNameSliding ? 0 : 1,transition: "opacity 0.5s ease",
+    }}></div>
+    <div style={{backgroundImage: `url(/img/paimon.jpg)`,
+      position: "absolute",
+      width:"3.5rem",height:"3.5rem",padding:"0px",
+      backgroundSize:"cover",
+      backgroundPosition:"center",
+      backgroundRepeat:"no-repeat",left:"5px",top:"15px",
+      zIndex: "20",
+      borderRadius:"50%",
+      border:"3px inset rgb(163, 129, 255)",
     }}></div>
     <div className="characterDetailsContainer">
       {display === "INFO" && (
